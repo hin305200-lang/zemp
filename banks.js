@@ -6,7 +6,7 @@
   }
 
   var LOGOS = {
-    nnfinanz: mark("#0b0b10", '<rect x="10" y="10" width="16" height="16" rx="5" fill="url(#lgm)"/><rect x="22" y="22" width="16" height="16" rx="5" fill="#22b8d4" opacity=".7"/>'),
+    nnfinanz: mark("#e9f0ef", '<rect x="10" y="10" width="16" height="16" rx="4" fill="#1a3a32"/><rect x="22" y="22" width="16" height="16" rx="4" fill="#5ebb7d"/>'),
     hsbc: mark("#DB0011", '<path fill="#fff" d="M9 11h30L24 24 9 11zm0 26h30L24 24 9 37z"/>'),
     deutsche: mark("#0018A8", '<path d="M15 33L33 15" stroke="#fff" stroke-width="5" stroke-linecap="round"/>'),
     commerzbank: mark("#FFD200", '<path fill="#111" d="M18 14h4v20h-4zm8 0l10 10-10 10V14z"/>'),
@@ -35,7 +35,7 @@
   };
 
   var BANKS = [
-    { id: "nnfinanz", name: "Zemp & Partner", short: "ZP", country: "Switzerland", kind: "Platform", bic: "ZEMPCHZZXXX", color: "#0b0b10", shield: "Settlement account", offers: ["Settlement"], connectable: false },
+    { id: "nnfinanz", name: "Zemp & Partner", short: "ZP", country: "Switzerland", kind: "Platform", bic: "ZEMPCHZZXXX", color: "#1a3a32", shield: "Settlement account", offers: ["Settlement"], connectable: false },
     { id: "hsbc", name: "HSBC", short: "HSBC", country: "Germany / UK", kind: "Bank", bic: "TUBDDEDDXXX", color: "#DB0011", shield: "EdB up to €100,000", offers: ["Current", "Overnight", "Brokerage"], connectable: true,
       templates: [
         { type: "checking", name: "HSBC Premier Current", rate: 0, seed: 12450.2 },

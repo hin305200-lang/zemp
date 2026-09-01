@@ -584,10 +584,10 @@
     });
     var t = total() || 1;
     var rows = [
-      ["Liquidity", by.cash, "var(--cyan)"],
-      ["Overnight", by.savings, "var(--blue)"],
-      ["Term deposits", by.cd, "var(--indigo)"],
-      ["ETF", by.etf, "var(--pink)"]
+      ["Liquidity", by.cash, "var(--ink)"],
+      ["Overnight", by.savings, "var(--accent)"],
+      ["Term deposits", by.cd, "var(--blue)"],
+      ["ETF", by.etf, "var(--teal)"]
     ];
     return '<div class="bars">' + rows.map(function (r) {
       var pctW = Math.round((r[1] / t) * 100);
