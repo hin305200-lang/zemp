@@ -48,8 +48,8 @@ export function SiteNav() {
         </a>
         <div className="nav-links">
           <a href="#why">Bonds</a>
-          <a href="#keytools">Benefits</a>
-          <a href="#rates">Marketplace</a>
+          <a href="#rates">Calculator</a>
+          <a href="#offer">Offer</a>
           <a href="#imprint">Imprint</a>
         </div>
         <div className="nav-actions">
@@ -81,8 +81,8 @@ export function SiteNav() {
         <button className="nav-drawer-dim" type="button" aria-label="Close menu" onClick={() => setOpen(false)} />
         <div className="nav-drawer-panel" role="dialog" aria-label="Site menu">
           <a href="#why" onClick={() => setOpen(false)}>Bonds</a>
-          <a href="#keytools" onClick={() => setOpen(false)}>Benefits</a>
-          <a href="#rates" onClick={() => setOpen(false)}>Marketplace</a>
+          <a href="#rates" onClick={() => setOpen(false)}>Calculator</a>
+          <a href="#offer" onClick={() => setOpen(false)}>Offer</a>
           <a href="#imprint" onClick={() => setOpen(false)}>Imprint</a>
           {signedIn ? (
             <>

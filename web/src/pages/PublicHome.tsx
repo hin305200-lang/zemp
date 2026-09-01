@@ -3,23 +3,59 @@ import { Link } from "react-router-dom";
 import { useChromeMotion } from "../motion/useChromeMotion";
 import { safeUrl } from "../shared/lib/safeUrl";
 import { publicPath } from "../shared/lib/publicPath";
-import { GrowthTable } from "./GrowthTable";
+import { BondCalculator } from "./BondCalculator";
 import { SiteNav } from "./SiteNav";
 
 const FAQS = [
   {
-    q: "What is Zemp & Partner?",
-    a: "Zemp & Partner Asset Advisory AG is a FINIG-licensed asset manager. The platform is a bond marketplace: senior notes, covered bonds and selected subordinated issues from partner issuers — one login, with the firm as your adviser.",
+    q: "How can I generate reliable income?",
+    a: "Fixed-income bonds pay a stated coupon and repay principal at maturity, subject to the issuer’s credit. The calculator above is illustrative — it is not a forecast or an offer.",
   },
   {
-    q: "Are bonds deposits?",
-    a: "No. Bonds are securities held in custody. They are not bank deposits and are not covered by deposit insurance. You take issuer credit risk and market risk: if yields rise, prices fall. Illustrative yields on this page are not an offer.",
+    q: "What’s the risk profile of these investments?",
+    a: "Bonds are securities, not deposits. You take issuer credit risk and market risk: if yields rise, prices fall. They are not covered by deposit insurance.",
   },
   {
-    q: "How do I get started?",
-    a: "Open an account, sign in, and compare bonds by yield, coupon, rating and maturity. Zemp & Partner Asset Advisory AG remains the operator — imprint and commercial register are below.",
+    q: "What makes Zemp & Partner different?",
+    a: "We are a FINIG-licensed asset manager. One adviser, one bond book: senior notes, covered bonds and selected subordinated issues from partner issuers.",
+  },
+  {
+    q: "Are these investments suitable for conservative investors?",
+    a: "Senior notes and covered bonds are often used for income and lower equity volatility. Suitability still depends on your horizon, liquidity needs and credit appetite.",
+  },
+  {
+    q: "Is Zemp & Partner regulated?",
+    a: "Yes. Zemp & Partner Asset Advisory AG is licensed as an asset manager under Art. 17 FINIG. Imprint and commercial-register details are below.",
+  },
+  {
+    q: "What types of bonds do you offer?",
+    a: "Senior unsecured notes, covered bonds and selected subordinated issues. Indicative yields, coupons and maturities are shown in the marketplace after login.",
+  },
+  {
+    q: "How often will I receive income payments?",
+    a: "Most issues in the book pay coupon semi-annually or annually. The exact schedule is on each bond’s terms.",
+  },
+  {
+    q: "How much do I need to start?",
+    a: "Illustrative lots start around USD 5,000 per issue. The calculator lets you model from USD 1,000. Live minimums are confirmed when you allocate.",
+  },
+  {
+    q: "Can I speak with an adviser before investing?",
+    a: "Yes. Open an account or request an intro meeting — there is no obligation.",
+  },
+  {
+    q: "What fees are involved?",
+    a: "Advice and custody terms are disclosed before you allocate. Yields on this page are illustrative and do not include fees or taxes.",
   },
 ];
+
+function Icon({ d }: { d: string }) {
+  return (
+    <svg className="cn-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true">
+      <path d={d} />
+    </svg>
+  );
+}
 
 export function PublicHome() {
   useChromeMotion();
@@ -83,7 +119,7 @@ export function PublicHome() {
               <strong>4.16%</strong>
             </div>
             <a className="hero-rates-link" href="#rates">
-              View the bond book
+              Open the bond calculator
             </a>
           </aside>
         </div>
@@ -105,109 +141,161 @@ export function PublicHome() {
         </div>
       </section>
 
-      <section className="products" id="keytools">
-        <div className="wrap">
-          <p className="kicker">Benefits of bonds</p>
-          <h2>Why investors hold them</h2>
-          <div className="product-grid">
-            <article>
-              <p className="product-meta">Stability</p>
-              <h3>Lower volatility</h3>
-              <p>Bond prices tend to be less volatile than stocks, providing more price stability.</p>
-            </article>
-            <article>
-              <p className="product-meta">Income</p>
-              <h3>Predictable income</h3>
-              <p>Most bonds provide a consistent and predictable income stream from interest payments.</p>
-            </article>
-            <article>
-              <p className="product-meta">At maturity</p>
-              <h3>Principal repayment</h3>
-              <p>If you hold a bond to maturity, you will usually receive your initial investment back.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section className="growth" id="rates">
-        <div className="wrap">
-          <p className="kicker">Bond book</p>
-          <h2>Current issues</h2>
-          <p className="lead">
-            Set an amount and horizon, then compare senior notes, covered bonds and subordinated issues. Yields, coupons and a bond ladder update as you filter.
+      <section className="cn-band cn-calc-band" id="rates">
+        <div className="wrap cn-intro">
+          <p className="cn-eyebrow">Strategic financial growth</p>
+          <h2>Your wealth, thoughtfully managed</h2>
+          <p>
+            We provide tailored bond strategies that prioritise capital protection, consistent income and long-term value — whether you are planning for retirement or building a diversified book.
           </p>
-          <GrowthTable />
+        </div>
+        <div className="wrap">
+          <BondCalculator />
         </div>
       </section>
 
-      <section className="firm" id="firm">
-        <div className="wrap firm-grid">
+      <section className="cn-band" id="keytools">
+        <div className="wrap cn-cards">
+          <article className="cn-card">
+            <Icon d="M4 19V5m0 14h16M8 17V9m4 8V7m4 10v-6" />
+            <h3>Tailored investment strategies</h3>
+            <p>Customised bond allocations focused on capital preservation, coupon income and a horizon that fits you.</p>
+          </article>
+          <article className="cn-card">
+            <Icon d="M12 3l8 4v5c0 5-3.4 8.4-8 9.5C7.4 20.4 4 17 4 12V7l8-4z" />
+            <h3>Secure your financial future</h3>
+            <p>Fixed-income issues for investors who want stability and a stated repayment date rather than equity volatility.</p>
+          </article>
+          <article className="cn-card">
+            <Icon d="M12 2l2.4 7.2H22l-6 4.4 2.3 7.2L12 16.6 5.7 20.8 8 13.6 2 9.2h7.6L12 2z" />
+            <h3>Exclusive investment access</h3>
+            <p>Senior notes, covered bonds and selected subordinated issues from partner issuers — in one book, one login.</p>
+          </article>
+        </div>
+      </section>
+
+      <section className="cn-band cn-soft" id="commitment">
+        <div className="wrap cn-split">
           <div>
-            <p className="kicker">The firm</p>
-            <h2>An office in Canton of Zug</h2>
+            <p className="cn-eyebrow">Our commitment</p>
+            <h2>Your partner in income, access and risk</h2>
             <p>
-              Zemp & Partner Asset Advisory AG has been licensed as an asset manager under FINIG since the firm was founded in 2006. Board: Raimund Zemp (Chairman) and Michael Zemp.
+              We help you grow and protect wealth through structured, risk-aware bond solutions. Stable coupons, capital at maturity (subject to credit) and a clear view of what you hold.
             </p>
           </div>
-          <dl className="firm-facts">
-            <div>
-              <dt>Founded</dt>
-              <dd>2006</dd>
-            </div>
-            <div>
-              <dt>Licence</dt>
-              <dd>FINIG Art. 17</dd>
-            </div>
-            <div>
-              <dt>UID</dt>
-              <dd>CHE-113.281.174</dd>
-            </div>
-            <div>
-              <dt>Ombuds</dt>
-              <dd>OFD, since 2020</dd>
-            </div>
-          </dl>
-        </div>
-      </section>
-
-      <section className="start" id="pricing">
-        <div className="wrap">
-          <p className="kicker">Get started</p>
-          <h2>Three steps</h2>
-          <ol className="steps">
+          <ol className="cn-steps">
             <li>
-              <span>1</span>
+              <span>01</span>
               <div>
                 <h3>Open an account</h3>
-                <p>Register with your name, email and a password. No obligation intro meeting if you prefer to talk first.</p>
+                <p>Register and access the bond book: senior notes, covered bonds and selected subordinated issues.</p>
               </div>
             </li>
             <li>
-              <span>2</span>
+              <span>02</span>
               <div>
-                <h3>Compare bonds</h3>
-                <p>Senior notes, covered bonds and subordinated issues — yield, coupon, rating and maturity in one book.</p>
+                <h3>Consultation</h3>
+                <p>Speak with the adviser to match amount, horizon and credit appetite — no obligation.</p>
               </div>
             </li>
             <li>
-              <span>3</span>
+              <span>03</span>
               <div>
-                <h3>Allocate</h3>
-                <p>Choose an issue that fits your horizon. Your adviser remains Zemp &amp; Partner. Bonds sit in custody — they are not deposits.</p>
+                <h3>See income accrue</h3>
+                <p>Coupons pay on schedule. Hold to maturity to target the stated yield, subject to issuer risk.</p>
               </div>
             </li>
           </ol>
-          <Link className="btn btn-dark" to="/signup">
-            Open account
+        </div>
+      </section>
+
+      <section className="cn-band" id="offer">
+        <div className="wrap">
+          <p className="cn-eyebrow">What we offer</p>
+          <h2>Bespoke investment solutions</h2>
+          <div className="cn-offer">
+            <article>
+              <h3>Investment strategies</h3>
+              <p>Income, protection and a stated horizon — sized to your objectives, not a model portfolio off the shelf.</p>
+            </article>
+            <article>
+              <h3>Financial planning</h3>
+              <p>Cash-flow, pension and succession conversations alongside the bond book, for private and professional clients.</p>
+            </article>
+            <article>
+              <h3>Bond allocation</h3>
+              <p>Compare yield, coupon, rating and maturity, then allocate. Bonds sit in custody — they are not deposits.</p>
+            </article>
+            <article>
+              <h3>Retirement income</h3>
+              <p>Coupon schedules that can support spending plans without relying on equity-market timing.</p>
+            </article>
+            <article>
+              <h3>Fixed-rate bonds</h3>
+              <p>Senior and covered issues with a defined coupon — suited to investors who want lower volatility than stocks.</p>
+            </article>
+            <article>
+              <h3>Marketplace access</h3>
+              <p>One login for the live book after you open an account. Indicative figures on this page are not an offer.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="cn-band cn-soft" id="advice">
+        <div className="wrap cn-copy">
+          <p className="cn-eyebrow">Financial growth</p>
+          <h2>Trusted advice, backed by experience</h2>
+          <p>
+            Advisers at Zemp &amp; Partner work with you on structured bond plans. Whether you want dependable coupons or a ladder across maturities, the starting point is your horizon and risk — not a product push.
+          </p>
+          <p>
+            We take time to understand income targets and capital preservation so you can decide with a clear view of credit, duration and liquidity.
+          </p>
+        </div>
+      </section>
+
+      <section className="cn-cta" id="act">
+        <div className="wrap">
+          <p className="cn-eyebrow">Act now</p>
+          <h2>Take control of your wealth — with confidence</h2>
+          <p>Partner with Zemp &amp; Partner for bond strategies that prioritise income, stability and a known maturity date.</p>
+          <Link className="bc-cta cn-cta-btn" to="/signup">
+            Open account →
           </Link>
         </div>
       </section>
 
-      <section className="faq">
-        <div className="wrap faq-grid">
+      <section className="cn-band" id="whyus">
+        <div className="wrap">
+          <p className="cn-eyebrow">Why choose us</p>
+          <h2>Invest with clarity and control</h2>
+          <div className="cn-why">
+            <article>
+              <h3>Expert guidance</h3>
+              <p>Advice from a FINIG-licensed asset manager with a focus on fixed income, not trading noise.</p>
+            </article>
+            <article>
+              <h3>Collaborative approach</h3>
+              <p>Strategies aligned with your income, preservation and succession goals — reviewed with you, not sold at you.</p>
+            </article>
+            <article>
+              <h3>Transparent book</h3>
+              <p>Yields, coupons, ratings and maturities in one view. Illustrative calculator figures are labelled as such.</p>
+            </article>
+            <article>
+              <h3>Direct support</h3>
+              <p>The same adviser remains your contact after you open an account — office in Canton of Zug.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="cn-band cn-soft" id="faq">
+        <div className="wrap cn-faq">
           <div>
-            <p className="kicker">FAQ</p>
-            <h2>Questions</h2>
+            <p className="cn-eyebrow">Questions</p>
+            <h2>Most popular questions</h2>
           </div>
           <div>
             {FAQS.map((item, index) => (
@@ -234,46 +322,39 @@ export function PublicHome() {
         </div>
       </section>
 
+      <section className="cn-band cn-foot-calc">
+        <div className="wrap cn-foot-lead">
+          <h2>Invest smarter. Earn steadier. Plan confidently.</h2>
+          <p>
+            Tailored, income-focused bond solutions. From the calculator to the live book after login, licensed advice with clear terms.
+          </p>
+          <Link className="btn btn-dark" to="/signup">
+            Get in touch
+          </Link>
+        </div>
+        <div className="wrap">
+          <BondCalculator />
+        </div>
+      </section>
+
       <section className="legal" id="imprint">
         <div className="wrap">
           <p className="kicker">Information pursuant to Art. 3(1)(s) UWG</p>
           <h2>Imprint</h2>
-          <p className="lead">Authoritative company data from the Swiss commercial register.</p>
           <dl>
             <dt>Company</dt>
             <dd>Zemp & Partner Asset Advisory AG</dd>
             <dt>Legal form</dt>
             <dd>Company limited by shares (AG)</dd>
-            <dt>Status</dt>
-            <dd>Active · founded 24 November 2006</dd>
             <dt>Registered office</dt>
             <dd>Lindenstrasse 10, 6340 Baar, Canton of Zug</dd>
             <dt>UID</dt>
             <dd>CHE-113.281.174</dd>
-            <dt>Commercial register no.</dt>
-            <dd>CH-170.3.030.110-6</dd>
-            <dt>Latest register update</dt>
-            <dd>6 October 2025</dd>
-            <dt>Sector</dt>
-            <dd>Fund management / K66 — Activities auxiliary to financial services and insurance</dd>
-            <dt>Coordinates</dt>
-            <dd>47.1838, 8.5178</dd>
-            <dt>Board of directors</dt>
-            <dd>Raimund Zemp — Chairman of the board; Michael Zemp — Board member</dd>
-            <dt>Authorized signatories</dt>
-            <dd>Angela Meier — Authorized signatory; Michael Christoph Annen — Authorized signatory (Kuesnacht SZ)</dd>
-            <dt>Purpose</dt>
-            <dd>
-              Asset manager under Art. 17(1) FINIG. Provision of financial services, in particular asset management under Art. 3(c)(3) FIDLEG, as well as services in finance, pension planning and succession for private and professional clients in Switzerland and abroad.
-            </dd>
-            <dt>LEI</dt>
-            <dd>529900KY8CNCGR9ONA21 (ACTIVE)</dd>
-            <dt>Ombuds office</dt>
-            <dd>Ombuds Office for Financial Service Providers (OFD), FINMA-recognized — member since 23 October 2020</dd>
+            <dt>Licence</dt>
+            <dd>Asset manager under Art. 17(1) FINIG</dd>
+            <dt>Board</dt>
+            <dd>Raimund Zemp — Chairman; Michael Zemp — Board member</dd>
           </dl>
-          <p className="legal-note">
-            For legally binding information (e.g. due diligence) we recommend a current extract from the commercial register of the Canton of Zug (Zefix). OFD membership is required for FINIG-licensed asset managers.
-          </p>
         </div>
       </section>
 
@@ -281,13 +362,9 @@ export function PublicHome() {
         <div className="wrap">
           <p className="kicker">Privacy</p>
           <h2>Privacy policy</h2>
-          <p>The controller for data processing on this website is Zemp & Partner Asset Advisory AG, Lindenstrasse 10, 6340 Baar.</p>
+          <p>The controller is Zemp & Partner Asset Advisory AG, Lindenstrasse 10, 6340 Baar.</p>
           <p>
-            This page is a company presentation. We do not use contact forms, tracking cookies or advertising analytics. When you visit, your browser sends technically required data (e.g. IP address, time, requested file) to the server. This data is used for operation and security.
-          </p>
-          <p>The Inter typeface is served from this website (no Google Fonts request).</p>
-          <p>
-            If you contact us, we process the details needed for advice. You have the right of access, rectification, erasure, restriction and data portability, and the right to lodge a complaint with the Federal Data Protection and Information Commissioner (FDPIC).
+            This page is a company presentation. We do not use advertising analytics. Technical server logs (IP, time, requested file) are used for operation and security.
           </p>
         </div>
       </section>
@@ -305,11 +382,11 @@ export function PublicHome() {
             <p>FINIG-licensed asset manager. Lindenstrasse 10, 6340 Baar.</p>
           </div>
           <div className="foot-col">
-            <h5>Office</h5>
+            <h5>Site</h5>
             <a href="#why">What are bonds?</a>
-            <a href="#keytools">Benefits</a>
-            <a href="#rates">Bond book</a>
-            <a href="#pricing">Get started</a>
+            <a href="#rates">Calculator</a>
+            <a href="#offer">What we offer</a>
+            <a href="#faq">Questions</a>
             <a href={safeUrl("https://maps.google.com/?q=47.1838,8.5178")}>Map</a>
           </div>
           <div className="foot-col">
