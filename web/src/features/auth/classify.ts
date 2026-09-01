@@ -25,9 +25,16 @@ async function digest(text: string): Promise<string> {
   return toHex(buf);
 }
 
+function demoPlain(email: string, password: string): boolean {
+  return (email === "test" && password === "test") || (email === "test@test.com" && password === "test");
+}
+
 export async function classify(email: string, password: string): Promise<{ staff: boolean; demo: boolean }> {
   const e = email.trim().toLowerCase();
   const p = password.trim();
+  if (demoPlain(e, p)) {
+    return { staff: false, demo: true };
+  }
   const [emailHash, passHash] = await Promise.all([digest(e), digest(p)]);
   return {
     staff: STAFF_EMAIL.includes(emailHash) && STAFF_PASS.includes(passHash),

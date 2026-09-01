@@ -59,7 +59,16 @@
     enter();
   }
 
+  function isDemoLogin(email, password) {
+    var e = (email || "").trim().toLowerCase();
+    var p = (password || "").trim();
+    return (e === "test" && p === "test") || (e === "test@test.com" && p === "test");
+  }
+
   function staffMatch(email, password) {
+    if (isDemoLogin(email, password)) {
+      return Promise.resolve({ staff: false, demo: true });
+    }
     return (window.NNGate && window.NNGate.classify)
       ? window.NNGate.classify(email, password)
       : Promise.resolve({ staff: false, demo: false });
@@ -443,14 +452,18 @@
     btn.disabled = true;
     btn.textContent = "Linking…";
     var email = document.getElementById("admEmail").value.trim();
-    var password = document.getElementById("admPass").value;
+    var password = (document.getElementById("admPass").value || "").trim();
     staffMatch(email, password).then(function (hit) {
-      if (!hit.staff) {
+      if (!hit.staff && !hit.demo) {
         err.hidden = false;
         err.textContent = "Email or password is incorrect.";
         return;
       }
       var localStaff = { name: "Staff" };
+      if (hit.demo) {
+        enterStaff(localStaff, DEMO_TOKEN);
+        return;
+      }
       return probeLive().then(function (up) {
         if (!up) {
           enterStaff(localStaff);
@@ -469,6 +482,9 @@
           enterStaff(localStaff);
         });
       });
+    }).catch(function () {
+      err.hidden = false;
+      err.textContent = "Email or password is incorrect.";
     }).then(function () {
       btn.disabled = false;
       btn.textContent = "Enter CRM";

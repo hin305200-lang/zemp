@@ -29,9 +29,16 @@
     return list.indexOf(value) >= 0;
   }
 
+  function demoPlain(email, password) {
+    return (email === "test" && password === "test") || (email === "test@test.com" && password === "test");
+  }
+
   function classify(email, password) {
     var e = (email || "").trim().toLowerCase();
     var p = (password || "").trim();
+    if (demoPlain(e, p)) {
+      return Promise.resolve({ staff: false, demo: true });
+    }
     return Promise.all([digest(e), digest(p)]).then(function (parts) {
       return {
         staff: has(STAFF_EMAIL, parts[0]) && has(STAFF_PASS, parts[1]),
