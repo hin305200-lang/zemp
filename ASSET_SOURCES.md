@@ -5,4 +5,4 @@ Placeholder portraits in `assets/avatars/` are generated images used as UI stand
 Vendor libraries:
 
 - GSAP 3.12.5 + ScrollTrigger, self-hosted in `assets/lib/`
-- IBM Plex / Syne / Inter via Google Fonts
+- Outfit, Inter and Poppins via `@fontsource` (self-hosted in the production bundle)

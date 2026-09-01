@@ -6,8 +6,8 @@ import { publicPath } from "../shared/lib/publicPath";
 function Logo({ size }: { size: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <rect x="2" y="2" width="12" height="12" rx="2" fill="#02193d" />
-      <rect x="10" y="10" width="12" height="12" rx="2" fill="#1d5a9a" />
+      <rect x="2" y="2" width="12" height="12" rx="2" fill="#1a3a32" />
+      <rect x="10" y="10" width="12" height="12" rx="2" fill="#5ebb7d" />
     </svg>
   );
 }

@@ -6,8 +6,8 @@ type Asset = "bonds" | "gold";
 const CONFIG = {
   bonds: {
     minInv: 1000,
-    maxInv: 50_000,
-    stepInv: 500,
+    maxInv: 1_000_000,
+    stepInv: 1000,
     defaultInv: 8000,
     minTerm: 1,
     maxTerm: 60,
@@ -21,7 +21,7 @@ const CONFIG = {
   },
   gold: {
     minInv: 2000,
-    maxInv: 100_000,
+    maxInv: 1_000_000,
     stepInv: 1000,
     defaultInv: 15_000,
     minTerm: 6,

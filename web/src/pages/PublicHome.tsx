@@ -57,6 +57,33 @@ function Icon({ d }: { d: string }) {
   );
 }
 
+const FEATURES = [
+  {
+    icon: "M4 19V5m0 14h16M8 17V9m4 8V7m4 10v-6",
+    title: "Tailored investment strategies",
+    copy: "Customised bond allocations focused on capital preservation, coupon income and a horizon that fits you.",
+  },
+  {
+    icon: "M12 3l8 4v5c0 5-3.4 8.4-8 9.5C7.4 20.4 4 17 4 12V7l8-4z",
+    title: "Secure your financial future",
+    copy: "Fixed-income issues for investors who want stability and a stated repayment date rather than equity volatility.",
+  },
+  {
+    icon: "M12 2l2.4 7.2H22l-6 4.4 2.3 7.2L12 16.6 5.7 20.8 8 13.6 2 9.2h7.6L12 2z",
+    title: "Exclusive investment access",
+    copy: "Senior notes, covered bonds and selected subordinated issues from partner issuers — in one book, one login.",
+  },
+];
+
+const OFFERS = [
+  { title: "Investment strategies", copy: "Income, protection and a stated horizon — sized to your objectives, not a model portfolio off the shelf." },
+  { title: "Financial planning", copy: "Cash-flow, pension and succession conversations alongside the bond book, for private and professional clients." },
+  { title: "Bond allocation", copy: "Compare yield, coupon, rating and maturity, then allocate. Bonds sit in custody — they are not deposits." },
+  { title: "Retirement income", copy: "Coupon schedules that can support spending plans without relying on equity-market timing." },
+  { title: "Fixed-rate bonds", copy: "Senior and covered issues with a defined coupon — suited to investors who want lower volatility than stocks." },
+  { title: "Marketplace access", copy: "One login for the live book after you open an account. Indicative figures on this page are not an offer." },
+];
+
 export function PublicHome() {
   useChromeMotion();
   const [openFaq, setOpenFaq] = useState(0);
@@ -73,7 +100,7 @@ export function PublicHome() {
       <section className="hero" id="top">
         <div className="wrap hero-grid">
           <div>
-            <p className="kicker">Zemp & Partner Asset Advisory AG · Baar, Zug</p>
+            <p className="kicker">FINIG-licensed asset manager · Canton of Zug</p>
             <h1>Bond investments, from one adviser.</h1>
             <p className="hero-sub">
               Zemp &amp; Partner is a FINIG-licensed asset manager. We help you lend to governments and corporations through bonds — IOUs that pay interest and repay principal at maturity.
@@ -156,21 +183,13 @@ export function PublicHome() {
 
       <section className="cn-band" id="keytools">
         <div className="wrap cn-cards">
-          <article className="cn-card">
-            <Icon d="M4 19V5m0 14h16M8 17V9m4 8V7m4 10v-6" />
-            <h3>Tailored investment strategies</h3>
-            <p>Customised bond allocations focused on capital preservation, coupon income and a horizon that fits you.</p>
-          </article>
-          <article className="cn-card">
-            <Icon d="M12 3l8 4v5c0 5-3.4 8.4-8 9.5C7.4 20.4 4 17 4 12V7l8-4z" />
-            <h3>Secure your financial future</h3>
-            <p>Fixed-income issues for investors who want stability and a stated repayment date rather than equity volatility.</p>
-          </article>
-          <article className="cn-card">
-            <Icon d="M12 2l2.4 7.2H22l-6 4.4 2.3 7.2L12 16.6 5.7 20.8 8 13.6 2 9.2h7.6L12 2z" />
-            <h3>Exclusive investment access</h3>
-            <p>Senior notes, covered bonds and selected subordinated issues from partner issuers — in one book, one login.</p>
-          </article>
+          {FEATURES.map((item) => (
+            <article className="cn-card" key={item.title}>
+              <Icon d={item.icon} />
+              <h3>{item.title}</h3>
+              <p>{item.copy}</p>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -214,30 +233,12 @@ export function PublicHome() {
           <p className="cn-eyebrow">What we offer</p>
           <h2>Bespoke investment solutions</h2>
           <div className="cn-offer">
-            <article>
-              <h3>Investment strategies</h3>
-              <p>Income, protection and a stated horizon — sized to your objectives, not a model portfolio off the shelf.</p>
-            </article>
-            <article>
-              <h3>Financial planning</h3>
-              <p>Cash-flow, pension and succession conversations alongside the bond book, for private and professional clients.</p>
-            </article>
-            <article>
-              <h3>Bond allocation</h3>
-              <p>Compare yield, coupon, rating and maturity, then allocate. Bonds sit in custody — they are not deposits.</p>
-            </article>
-            <article>
-              <h3>Retirement income</h3>
-              <p>Coupon schedules that can support spending plans without relying on equity-market timing.</p>
-            </article>
-            <article>
-              <h3>Fixed-rate bonds</h3>
-              <p>Senior and covered issues with a defined coupon — suited to investors who want lower volatility than stocks.</p>
-            </article>
-            <article>
-              <h3>Marketplace access</h3>
-              <p>One login for the live book after you open an account. Indicative figures on this page are not an offer.</p>
-            </article>
+            {OFFERS.map((item) => (
+              <article key={item.title}>
+                <h3>{item.title}</h3>
+                <p>{item.copy}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -359,8 +360,8 @@ export function PublicHome() {
           <div className="foot-brand">
             <a className="nav-logo" href="#top">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <rect x="2" y="2" width="12" height="12" rx="2" fill="#02193d" />
-                <rect x="10" y="10" width="12" height="12" rx="2" fill="#1d5a9a" />
+                <rect x="2" y="2" width="12" height="12" rx="2" fill="#1a3a32" />
+                <rect x="10" y="10" width="12" height="12" rx="2" fill="#5ebb7d" />
               </svg>
               Zemp & Partner
             </a>

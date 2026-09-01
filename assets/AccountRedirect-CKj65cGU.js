@@ -1,0 +1,1 @@
+import{E as e,T as t,h as n,i as r,s as i}from"./index-RIWEBmNB.js";var a=e(t(),1);function o(){let e=n();return(0,a.useEffect)(()=>{document.title=`Your account — Zemp & Partner`,r()?i():e(`/login`,{replace:!0})},[e]),null}export{o as AccountRedirect};
