@@ -160,7 +160,7 @@ export function PublicHome() {
             Bonds are essentially IOUs. Unlike stocks, which represent ownership in a company, bonds represent a loan that must be repaid with interest. Governments or corporations issue bonds when they want to raise funds for large projects or operations. Generally, when you invest in bonds, you are lending money to the issuer in exchange for periodic interest payments.
           </p>
           <p>
-            Generally, bonds have a set maturity date — the date when the issuer must fully repay the loan. Bonds typically have terms ranging from one to 30 years.
+            Usually, bonds have a set maturity date — the date when the issuer must fully repay the loan. Bonds typically have terms ranging from one to 30 years.
           </p>
           <p>
             Bonds are considered ‘fixed income’ investments because they provide investors with regular, pre-determined income through interest payments, offering a steady cash flow.
