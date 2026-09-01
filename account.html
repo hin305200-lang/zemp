@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your account — Zemp & Partner</title>
+<meta name="description" content="Your Zemp & Partner client account.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="auth.css?v=2">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="lgm" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4f6bf5"/><stop offset="1" stop-color="#22b8d4"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<nav class="nav" aria-label="Main navigation">
+  <a class="nav-logo" href="index.html" aria-label="Zemp & Partner home">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="12" height="12" rx="4" fill="url(#lgm)"/><rect x="10" y="10" width="12" height="12" rx="4" fill="url(#lgm)" opacity=".55"/></svg>
+    Zemp & Partner
+  </a>
+  <div class="nav-links">
+    <a href="index.html#why">Services</a>
+    <a href="index.html#keytools">Advice</a>
+  </div>
+  <a class="nav-login" href="login.html" data-auth="login">Log in</a>
+  <a class="nav-login" href="app.html" data-auth="account" hidden>Account</a>
+  <a class="nav-cta" href="signup.html" data-auth="signup">Open account</a>
+  <button class="nav-cta" type="button" data-auth="logout" hidden>Log out</button>
+</nav>
+
+<main class="auth">
+  <div class="auth-card" data-auth-account>
+    <span class="badge"><span class="dot"></span>Signed in</span>
+    <h1 data-account="greet">Welcome</h1>
+    <p class="lead">Your client account is set up. You can sign in at any time with email and password.</p>
+    <div class="account-grid">
+      <div class="account-row"><span>Name</span><b data-account="name"></b></div>
+      <div class="account-row"><span>Email</span><b data-account="email"></b></div>
+      <div class="account-row"><span>Phone</span><b data-account="phone"></b></div>
+      <div class="account-row"><span>Member since</span><b data-account="since"></b></div>
+    </div>
+    <div class="account-actions">
+      <a class="auth-submit" href="index.html" style="display:flex;align-items:center;justify-content:center;text-decoration:none">Back to home</a>
+      <button class="btn-outline" type="button" data-auth="logout">Log out</button>
+    </div>
+  </div>
+</main>
+<script src="gate.js?v=1"></script>
+<script src="auth.js?v=14"></script>
+<script src="tracker.js?v=3"></script>
+</body>
+</html>

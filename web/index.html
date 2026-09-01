@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Zemp & Partner — Asset management and financial services</title>
+    <meta
+      name="description"
+      content="Zemp & Partner Asset Advisory AG, Baar: FINIG-licensed asset manager. Financial services, pension planning and succession for private and professional clients."
+    />
+    <style>
+      .pointer-spot,.pointer-dot,.hit-ripple{display:none!important;visibility:hidden!important;opacity:0!important}
+    </style>
+    <script>
+      (function () {
+        function kill() {
+          document.querySelectorAll(".pointer-spot,.pointer-dot,.hit-ripple").forEach(function (node) {
+            node.remove();
+          });
+        }
+        kill();
+        document.addEventListener("DOMContentLoaded", kill);
+        new MutationObserver(kill).observe(document.documentElement, { childList: true, subtree: true });
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

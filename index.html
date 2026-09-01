@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zemp & Partner — Asset management and financial services</title>
+<meta name="description" content="Zemp & Partner Asset Advisory AG, Baar: FINIG-licensed asset manager. Financial services, pension planning and succession for private and professional clients.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --ink:#02193d; --body:#485a73; --mut:#818d9e; --line:#e4e2de; --soft:#f7f5f3; --soft2:#edebe9;
+  --blue:#3096ff; --indigo:#1d5a9a; --crimson:#d80027; --pink:#62afff; --peri:#62afff; --teal:#1d5a9a;
+  --green:#16a34a; --red:#ef4444; --cyan:#62afff;
+  --dark:#091b2f; --darkcard:#103154; --darkline:#314562; --darkmut:#818d9e;
+  --r-lg:24px; --r-md:18px; --r-sm:12px;
+  --sh-card:0 1px 2px rgba(16,16,40,.04),0 8px 24px rgba(16,16,40,.06);
+  --sh-dash:0 2px 6px rgba(16,16,40,.05),0 24px 64px rgba(16,16,40,.12);
+  --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:auto}
+body{font-family:var(--font);background:#fff;color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+section{position:relative}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:6px}
+
+/* ============ NAV ============ */
+.nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:100;display:flex;align-items:center;gap:26px;
+  background:rgba(255,255,255,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border:1px solid var(--line);border-radius:999px;padding:9px 10px 9px 20px;box-shadow:0 4px 20px rgba(16,16,40,.06)}
+.nav-logo{display:flex;align-items:center;gap:9px;font-weight:700;font-size:16px;letter-spacing:-.02em;white-space:nowrap}
+.nav-links{display:flex;align-items:center;gap:24px;font-size:14px;font-weight:500;color:#3d4150}
+.nav-links a{display:flex;align-items:center;gap:5px;transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-links svg{opacity:.55}
+.nav-login{font-size:14px;font-weight:600;color:#3d4150;padding:8px 2px;background:none;border:none;cursor:pointer}
+.nav-login:hover{color:var(--ink)}
+.nav-cta{background:var(--blue);color:#fff;font-size:14px;font-weight:600;padding:10px 20px;border-radius:10px;border:none;cursor:pointer;transition:transform .2s,background .2s}
+.nav-cta:hover{background:var(--indigo);transform:translateY(-1px)}
+
+/* ============ SHARED BITS ============ */
+.badge{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:500;color:#3d4150;
+  border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 16px;box-shadow:0 1px 3px rgba(16,16,40,.05)}
+.badge .dot{width:6px;height:6px;border-radius:50%;background:var(--blue)}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-weight:600;border-radius:999px;transition:transform .2s,box-shadow .2s,background .2s}
+.btn-dark{position:relative;background:var(--blue);color:#fff;font-size:16px;padding:16px 34px;border-radius:10px;z-index:1}
+.btn-dark:hover{background:var(--indigo);transform:translateY(-2px)}
+h2.sec{font-size:48px;font-weight:700;letter-spacing:-.03em;line-height:1.12}
+p.sub{font-size:17px;line-height:1.6;color:var(--body);max-width:560px}
+.sec-head{text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px;margin-bottom:64px}
+.avatar{border-radius:50%;object-fit:cover;background:linear-gradient(135deg,#c7d2fe,#fbcfe8)}
+
+/* ============ HERO ============ */
+.hero{padding:170px 0 0;text-align:center;overflow:hidden;background:var(--soft)}
+.hero-badge{margin-bottom:26px}
+.hero h1{font-size:64px;font-weight:800;letter-spacing:-.035em;line-height:1.06;margin-bottom:22px}
+.hero h1 .line{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
+.hero h1 .line>span{display:inline-block;will-change:transform,filter}
+.hero-sub{font-size:18px;line-height:1.6;color:var(--body);max-width:620px;margin:0 auto 34px}
+.hero-micro{margin-top:16px;font-size:13px;color:var(--mut)}
+.hero-chart-bg{position:absolute;right:-40px;top:120px;width:460px;opacity:.5;pointer-events:none}
+.hero-dash{position:relative;margin:70px auto 0;width:min(1080px,92%);border-radius:var(--r-lg) var(--r-lg) 0 0;
+  box-shadow:var(--sh-dash);border:1px solid var(--line);border-bottom:none;background:#fff;overflow:hidden}
+
+/* ============ DASHBOARD MOCK ============ */
+.dash{display:flex;text-align:left;font-size:13px;background:#fff;min-height:560px}
+.dash-side{width:228px;flex:none;border-right:1px solid var(--line);padding:20px 14px;display:flex;flex-direction:column;gap:4px;background:#fcfcfd}
+.dash-brand{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px;padding:2px 10px 18px}
+.dash-nav{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;color:#545a68;font-weight:500;font-size:13px}
+.dash-nav.active{background:#f0f1f8;color:var(--ink);font-weight:600}
+.dash-nav svg{flex:none;opacity:.7}
+.dash-nav .n{margin-left:auto;background:#ef4444;color:#fff;font-size:10px;font-weight:700;min-width:17px;height:17px;border-radius:9px;display:flex;align-items:center;justify-content:center}
+.dash-side-foot{margin-top:auto}
+.dash-main{flex:1;padding:20px 24px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.dash-head{display:flex;align-items:center;gap:14px}
+.dash-head h4{font-size:16px;font-weight:700}
+.dash-head .icons{margin-left:auto;display:flex;gap:8px}
+.dash-head .icons span{width:32px;height:32px;border:1px solid var(--line);border-radius:9px;display:flex;align-items:center;justify-content:center;color:#545a68}
+.dash-user{display:flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:11px;padding:5px 12px 5px 5px}
+.dash-user img{width:28px;height:28px}
+.dash-user b{font-size:12px;display:block;line-height:1.2}
+.dash-user i{font-style:normal;font-size:10.5px;color:var(--mut)}
+.dash-balance{border:1px solid var(--line);border-radius:var(--r-md);padding:18px 20px;display:flex;align-items:center;gap:24px;box-shadow:var(--sh-card)}
+.dash-balance .lbl{font-size:12px;color:var(--mut);font-weight:500;margin-bottom:6px}
+.dash-balance .amt{font-size:28px;font-weight:800;letter-spacing:-.02em}
+.dash-balance .note{font-size:12px;color:var(--body);max-width:250px;line-height:1.5}
+.dash-balance .note b{color:var(--green);font-weight:600}
+.dash-balance svg{margin-left:auto}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.stat-card{border:1px solid var(--line);border-radius:var(--r-md);padding:14px 16px;box-shadow:var(--sh-card)}
+.stat-card .lbl{font-size:11.5px;color:var(--mut);font-weight:500}
+.stat-card .val{font-size:19px;font-weight:800;letter-spacing:-.01em;margin:5px 0 3px}
+.stat-card .delta{font-size:11px;font-weight:600}
+.stat-card .delta.up{color:var(--green)}.stat-card .delta.dn{color:var(--red)}
+.stat-card .delta em{font-style:normal;color:var(--mut);font-weight:400}
+.stat-card svg{margin-top:8px}
+.pipe{border:1px solid var(--line);border-radius:var(--r-md);padding:16px 18px;box-shadow:var(--sh-card);flex:1;display:flex;flex-direction:column}
+.pipe-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.pipe-head b{font-size:13.5px}
+.pipe-tabs{display:flex;gap:3px;background:var(--soft2);border-radius:8px;padding:3px;margin-left:auto}
+.pipe-tabs span{font-size:11px;font-weight:600;color:#6b7180;padding:4px 9px;border-radius:6px}
+.pipe-tabs span.on{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(16,16,40,.1)}
+.pipe-filter{font-size:11px;font-weight:600;color:#545a68;border:1px solid var(--line);border-radius:8px;padding:5px 10px;display:flex;gap:6px;align-items:center}
+.pipe-chart{position:relative;flex:1;min-height:170px}
+.pipe-chart svg{width:100%;height:100%;display:block}
+.pipe-tip{position:absolute;left:52%;top:14%;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 8px 24px rgba(16,16,40,.12);padding:9px 12px;font-size:11px;line-height:1.5}
+.pipe-tip b{font-size:11.5px;display:block;margin-bottom:2px}
+.pipe-tip .r{color:var(--blue);font-weight:600}.pipe-tip .s{color:var(--red);font-weight:600}
+
+/* ============ MARQUEE ============ */
+.social{padding:74px 0 70px;text-align:center}
+.social p{font-size:15px;color:var(--body);margin-bottom:36px;font-weight:500}
+.marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.marquee-track{display:flex;align-items:center;gap:88px;width:max-content;animation:mq 30s linear infinite;padding-right:88px}
+@keyframes mq{to{transform:translateX(-50%)}}
+.mlogo{display:flex;align-items:center;gap:9px;font-weight:700;font-size:19px;letter-spacing:-.02em;color:#3a3f4d;opacity:.55;white-space:nowrap}
+.ml{width:28px;height:28px;border-radius:8px;color:#fff;font-size:10px;display:flex;align-items:center;justify-content:center;letter-spacing:0}
+
+/* ============ WHY / BENTO ============ */
+.why{padding:110px 0 120px}
+.bento{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.bcard{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:14px 14px 26px;box-shadow:var(--sh-card)}
+.bcard .mock{background:var(--soft);border:1px solid var(--line);border-radius:var(--r-md);height:230px;overflow:hidden;padding:18px;position:relative}
+.bcard h3{font-size:18px;font-weight:700;letter-spacing:-.01em;margin:22px 12px 8px}
+.bcard p{font-size:14px;line-height:1.55;color:var(--body);margin:0 12px}
+.taskrow{background:#fff;border:1px solid var(--line);border-radius:11px;padding:11px 12px;margin-bottom:9px;box-shadow:0 1px 3px rgba(16,16,40,.05)}
+.taskrow b{font-size:12px;display:block;font-weight:600}
+.taskrow i{font-style:normal;font-size:10.5px;color:var(--mut)}
+.taskrow .tt{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.astack{display:flex;margin-top:8px}
+.astack img{width:22px;height:22px;border:2px solid #fff;margin-left:-7px}
+.astack img:first-child{margin-left:0}
+.bars{display:flex;flex-direction:column;gap:14px;margin-top:8px}
+.bar{height:12px;border-radius:7px;background:var(--soft2);overflow:hidden}
+.bar span{display:block;height:100%;border-radius:7px}
+.blegend{display:flex;gap:16px;margin-top:18px;font-size:11.5px;color:var(--body);font-weight:500}
+.blegend i{font-style:normal;display:inline-flex;align-items:center;gap:6px}
+.blegend i::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--c)}
+.mini-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mini-stat{background:#fff;border:1px solid var(--line);border-radius:11px;padding:11px 12px}
+.mini-stat .lbl{font-size:10.5px;color:var(--mut);font-weight:500}
+.mini-stat .val{font-size:15px;font-weight:800;margin:3px 0 1px}
+.mini-stat .delta{font-size:10px;font-weight:600}
+
+/* ============ KEY TOOLS ============ */
+.keytools{padding:120px 0}
+.kt-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:80px;align-items:start}
+.kt-left{display:flex;flex-direction:column;gap:22px}
+.kt-tabs{display:flex;flex-direction:column;margin-top:14px}
+.kt-tab{text-align:left;font-size:16px;font-weight:600;color:#9aa1ad;padding:16px 0 16px 22px;border-left:2px solid var(--line);transition:color .25s,border-color .25s}
+.kt-tab.on{color:var(--blue);border-left-color:var(--blue)}
+.kt-right{position:relative;min-height:480px}
+.kt-panel{position:absolute;inset:0;opacity:0;transform:translateY(26px);transition:opacity .45s ease,transform .45s ease;pointer-events:none}
+.kt-panel.on{opacity:1;transform:none;pointer-events:auto}
+.kt-panel .cap{margin-top:18px}
+.kt-panel .cap b{font-size:20px;font-weight:700;letter-spacing:-.01em;display:block;margin-bottom:8px}
+.kt-panel .cap p{font-size:14.5px;line-height:1.6;color:var(--body);max-width:440px}
+.mock-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh-dash);padding:20px}
+.greet{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.greet b{font-size:15px;font-weight:700}
+.greet .gicons{margin-left:auto;display:flex;gap:8px;color:#545a68}
+.greet .gicons span{width:30px;height:30px;border:1px solid var(--line);border-radius:8px;display:flex;align-items:center;justify-content:center}
+.deals-table{width:100%;border-collapse:collapse;font-size:12.5px}
+.deals-table th{text-align:left;font-size:10.5px;color:var(--mut);font-weight:600;text-transform:uppercase;letter-spacing:.04em;padding:0 10px 10px}
+.deals-table td{padding:11px 10px;border-top:1px solid var(--line);font-weight:500}
+.deals-table td.amt{font-weight:700}
+.stage{display:inline-block;font-size:10.5px;font-weight:600;padding:4px 10px;border-radius:999px}
+.stage.prop{background:#ede9fe;color:#7c3aed}.stage.neg{background:#fce7f3;color:#db2777}
+.stage.disc{background:#e0f2fe;color:#0284c7}.stage.won{background:#dcfce7;color:#16a34a}
+.prob{display:flex;align-items:center;gap:7px}
+.prob .pbar{display:flex;gap:2px}
+.prob .pbar i{width:5px;height:12px;border-radius:2px;background:var(--soft2)}
+.prob .pbar i.f{background:var(--blue)}
+.prob span{font-size:11px;font-weight:600;color:var(--body)}
+.kan-legend{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.kan-legend span{font-size:11px;font-weight:600;padding:6px 12px;border-radius:999px;border:1px solid var(--line);display:inline-flex;gap:7px;align-items:center}
+.kan-legend b{font-weight:700}
+.kan-legend .kdot{width:7px;height:7px;border-radius:50%}
+.kan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.kcard{background:#fff;border:1px solid var(--line);border-radius:13px;padding:13px;box-shadow:0 2px 8px rgba(16,16,40,.05)}
+.kcard.lift{box-shadow:0 14px 34px rgba(16,16,40,.16);transform:rotate(-2.4deg) translateY(-6px);border-color:#d9d9e4}
+.kcard b{font-size:12.5px;font-weight:700;display:block}
+.kcard .amt{font-size:15px;font-weight:800;margin:4px 0 8px;letter-spacing:-.01em}
+.kcard .amt i{font-style:normal;font-size:10.5px;color:var(--mut);font-weight:500}
+.kcard p{font-size:10.5px;color:var(--body);line-height:1.45;margin-bottom:10px}
+.kcard .kfoot{display:flex;align-items:center;justify-content:space-between}
+.kcard .kfoot img{width:20px;height:20px}
+.kcard .kfoot span{font-size:10px;color:var(--mut);display:inline-flex;gap:4px;align-items:center}
+.kcard.ghost{border:1.5px dashed #d5d5e0;background:transparent;box-shadow:none;display:flex;align-items:center;justify-content:center;min-height:96px;color:var(--mut);font-size:12px;font-weight:600}
+
+/* ============ DARK PANEL ============ */
+.dark{background:var(--dark);border-radius:36px;margin:0 28px;padding:110px 0 120px;color:#fff}
+.dark .sec-head p.sub{color:var(--darkmut)}
+.dark h2.sec{color:#fff}
+.dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.dcard{background:var(--darkcard);border:1px solid var(--darkline);border-radius:var(--r-lg);padding:30px 28px}
+.dcard .icn{width:44px;height:44px;border-radius:12px;background:rgba(244,63,94,.1);display:flex;align-items:center;justify-content:center;margin-bottom:22px}
+.dcard h3{font-size:18px;font-weight:700;margin-bottom:10px;letter-spacing:-.01em}
+.dcard p{font-size:14px;line-height:1.6;color:var(--darkmut)}
+
+/* ============ GROWTH ============ */
+.growth{padding:120px 0}
+.gtabs{display:flex;gap:12px;justify-content:center;margin-bottom:44px;flex-wrap:wrap}
+.gtab{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:#3d4150;border:1px solid var(--line);background:#fff;border-radius:999px;padding:11px 20px;transition:border-color .2s,color .2s,box-shadow .2s}
+.gtab.on{border-color:var(--blue);color:var(--ink);box-shadow:none}
+.analytics{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh-dash);padding:26px 28px;max-width:920px;margin:0 auto}
+.analytics h4{font-size:16px;font-weight:700;margin-bottom:18px}
+.atable{width:100%;border-collapse:collapse;font-size:13px}
+.atable th{text-align:left;font-size:11px;color:var(--mut);font-weight:600;text-transform:uppercase;letter-spacing:.04em;padding:0 12px 12px}
+.atable td{padding:13px 12px;border-top:1px solid var(--line);font-weight:500;color:#3d4150}
+.atable td.who{display:flex;align-items:center;gap:10px;font-weight:600;color:var(--ink)}
+.atable td.who img{width:30px;height:30px}
+.atable td.amt{font-weight:800;color:var(--ink);font-size:20px;letter-spacing:-.02em}
+.status{display:inline-block;font-size:11px;font-weight:600;padding:5px 12px;border-radius:999px}
+.status.approved{background:#e3f0ff;color:#2563eb}
+.status.pending{background:#ffe4ec;color:#e11d63}
+
+/* ============ TESTIMONIALS ============ */
+.testi{padding:110px 0 120px}
+.tgrid{display:grid;grid-template-columns:1fr 2fr;gap:22px;margin-bottom:22px}
+.tgrid2{display:grid;grid-template-columns:1fr 1fr 2fr;gap:22px}
+.tstat{border-radius:var(--r-lg);padding:34px 30px;display:flex;flex-direction:column;justify-content:flex-end;min-height:220px}
+.tstat .num{font-size:52px;font-weight:800;letter-spacing:-.03em;line-height:1}
+.tstat .cap{font-size:14.5px;font-weight:500;margin-top:10px;opacity:.92}
+.tstat.pink{background:linear-gradient(140deg,#1d5a9a,#02193d);color:#fff}
+.tstat.blue{background:linear-gradient(140deg,#6d8bff,#4f63e8);color:#fff}
+.tstat.white{background:#fff;border:1px solid var(--line);box-shadow:var(--sh-card);color:var(--ink)}
+.tstat.white .cap{color:var(--body)}
+.tquote{background:var(--soft);border:1px solid var(--line);border-radius:var(--r-lg);padding:36px 38px;display:flex;flex-direction:column;justify-content:space-between;min-height:220px}
+.tquote.stand{background:#fff;box-shadow:var(--sh-card)}
+.tquote p{font-size:19px;line-height:1.55;font-weight:500;letter-spacing:-.01em;color:#2a2e3a}
+.tquote .who{display:flex;align-items:center;gap:12px;margin-top:26px}
+.tquote .who img{width:42px;height:42px}
+.tquote .who b{font-size:14px;display:block}
+.tquote .who i{font-style:normal;font-size:12.5px;color:var(--mut)}
+
+/* ============ PRICING ============ */
+.pricing{padding:110px 0 120px}
+.ptoggle{display:inline-flex;align-items:center;gap:14px;font-size:14.5px;font-weight:600;margin-top:8px}
+.ptoggle .save{font-size:11px;font-weight:700;background:var(--pink);color:#fff;border-radius:999px;padding:4px 10px;margin-left:6px}
+.switch{width:52px;height:29px;border-radius:999px;background:var(--ink);position:relative;transition:background .25s}
+.switch::after{content:"";position:absolute;top:3.5px;left:4px;width:22px;height:22px;border-radius:50%;background:#fff;transition:transform .25s cubic-bezier(.4,0,.2,1)}
+.switch.yearly::after{transform:translateX(22px)}
+.pcards{display:grid;grid-template-columns:repeat(2,minmax(0,440px));gap:26px;justify-content:center}
+.pcard{background:#fff;border:1px solid var(--line);border-radius:28px;padding:38px 36px;box-shadow:var(--sh-card);display:flex;flex-direction:column}
+.pcard.feat{border:1.5px solid var(--ink)}
+.pcard h3{font-size:21px;font-weight:700;letter-spacing:-.01em}
+.pcard .pdesc{font-size:14px;color:var(--body);line-height:1.55;margin:10px 0 26px}
+.pcard .price{font-size:46px;font-weight:800;letter-spacing:-.03em;line-height:1}
+.pcard .price i{font-style:normal;font-size:15px;font-weight:500;color:var(--mut);letter-spacing:0}
+.pcard .billed{font-size:12.5px;color:var(--mut);margin:8px 0 26px}
+.pcard .btn{width:100%;padding:15px;font-size:15px;margin-bottom:30px}
+.btn-outline{border:1.5px solid var(--line);color:var(--ink);background:#fff}
+.btn-outline:hover{border-color:var(--ink)}
+.pcard .get{font-size:13px;font-weight:600;color:var(--body);margin-bottom:16px}
+.pfeat{display:flex;align-items:center;gap:11px;font-size:14px;font-weight:500;padding:9px 0;color:#2a2e3a}
+.pfeat::before{content:"";width:19px;height:19px;flex:none;border-radius:50%;background:#e3f0ff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%232563eb" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>') center/10px no-repeat}
+.pfeat.off{color:#b6bac4}
+.pfeat.off::before{background:var(--soft2) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23b6bac4" stroke-width="3.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>') center/9px no-repeat}
+
+/* ============ FAQ ============ */
+.faq{padding:110px 0 130px}
+.faq-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:90px;align-items:start}
+.faq-left{display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+.faq-left h2.sec{font-size:44px}
+.acc{border:1px solid var(--line);border-radius:var(--r-md);background:#fff;margin-bottom:14px;overflow:hidden;transition:box-shadow .25s}
+.acc.open{box-shadow:var(--sh-card)}
+.acc-head{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:21px 24px;font-size:16px;font-weight:600;text-align:left;letter-spacing:-.01em}
+.acc-head svg{flex:none;transition:transform .3s;color:#6b7180}
+.acc.open .acc-head svg{transform:rotate(180deg)}
+.acc-body{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.acc-body p{padding:0 24px 22px;font-size:14.5px;line-height:1.65;color:var(--body);max-width:560px}
+
+/* ============ SHOWCASE ============ */
+.showcase{padding:40px 0 130px}
+.showcase .dash{border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh-dash);overflow:hidden;max-width:1080px;margin:0 auto}
+
+/* ============ CTA ============ */
+.cta{padding:90px 0 130px;text-align:center}
+.cta .mark{margin:0 auto 30px;display:block}
+.cta h2{font-size:52px;font-weight:800;letter-spacing:-.035em;margin-bottom:16px}
+.cta p{font-size:17px;color:var(--body);margin-bottom:36px}
+
+/* ============ FOOTER ============ */
+footer{border-top:1px solid var(--line);padding:70px 0 0}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;padding-bottom:64px}
+.foot-brand p{font-size:14px;line-height:1.6;color:var(--body);margin:18px 0 24px;max-width:280px}
+.socials{display:flex;gap:10px}
+.socials a{width:36px;height:36px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;transition:transform .2s,background .2s}
+.socials a:hover{background:#23232c;transform:translateY(-2px)}
+.foot-col h5{font-size:14px;font-weight:700;margin-bottom:18px}
+.foot-col a{display:block;font-size:14px;color:var(--body);padding:6px 0;transition:color .2s}
+.foot-col a:hover{color:var(--ink)}
+.foot-bar{border-top:1px solid var(--line);padding:22px 0;text-align:center;font-size:13px;color:var(--mut)}
+.legal{padding:90px 0 80px;border-top:1px solid var(--line)}
+.legal + .legal{padding-top:0;border-top:none}
+.legal h2.sec{font-size:36px;margin-bottom:8px}
+.legal .sub{margin-bottom:28px}
+.legal address{font-style:normal;font-size:15px;line-height:1.7;color:var(--body)}
+.legal p{font-size:15px;line-height:1.7;color:var(--body);max-width:680px;margin-bottom:14px}
+.legal dl{display:grid;grid-template-columns:minmax(140px,200px) 1fr;gap:10px 24px;max-width:720px;font-size:15px;line-height:1.55}
+.legal dt{color:var(--mut);font-weight:500}
+.legal dd{color:var(--ink);font-weight:500}
+.legal a{color:var(--blue);font-weight:600}
+
+/* Content stays visible on GitHub Pages even if animation scripts fail to load. */
+[data-reveal]{opacity:1;transform:none}
+html.motion [data-reveal]{opacity:0;transform:translateY(30px)}
+html.motion.rm [data-reveal],.rm [data-reveal]{opacity:1;transform:none}
+h2.sec .w{display:inline-block}
+[data-hero-dash],.showcase .dash{will-change:transform}
+
+/* ============ RESPONSIVE (inferred, conservative) ============ */
+@media(max-width:1100px){
+  .kt-grid{grid-template-columns:1fr;gap:44px}
+  .kt-right{min-height:520px}
+  .faq-grid{grid-template-columns:1fr;gap:44px}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:36px}
+}
+@media(max-width:900px){
+  .nav-links{display:none}
+  h2.sec{font-size:36px}
+  .hero h1{font-size:44px}
+  .hero{padding-top:140px}
+  .bento{grid-template-columns:1fr}
+  .dgrid{grid-template-columns:1fr 1fr}
+  .tgrid,.tgrid2{grid-template-columns:1fr}
+  .pcards{grid-template-columns:1fr}
+  .dark{margin:0 12px;padding:80px 0}
+  .cta h2{font-size:38px}
+  .stat-row{grid-template-columns:1fr 1fr}
+  .dash-side{display:none}
+}
+@media(max-width:560px){
+  .hero h1{font-size:34px}
+  .hero-sub{font-size:16px}
+  .dgrid{grid-template-columns:1fr}
+  .kan-grid{grid-template-columns:1fr 1fr}
+  .stat-row{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .nav{gap:14px;padding-left:14px}
+  .nav-logo{font-size:14px}
+  .legal dl{grid-template-columns:1fr;gap:4px 0}
+  .legal dt{margin-top:10px}
+}
+@media(prefers-reduced-motion:reduce){
+  .marquee-track{animation:none}
+  *{transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- logo mark: overlapping rounded diamonds, blue→cyan gradient -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="lgm" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1d5a9a"/><stop offset="1" stop-color="#3096ff"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" aria-label="Main">
+  <a class="nav-logo" href="#top" aria-label="Zemp & Partner home">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="12" height="12" rx="4" fill="url(#lgm)"/><rect x="10" y="10" width="12" height="12" rx="4" fill="url(#lgm)" opacity=".55"/></svg>
+    Zemp & Partner
+  </a>
+  <div class="nav-links">
+    <a href="#why">Marketplace</a>
+    <a href="#keytools">Products</a>
+    <a href="#pricing">Get started</a>
+    <a href="#imprint">Imprint</a>
+  </div>
+  <a class="nav-login" href="login.html" data-auth="login">Log in</a>
+  <a class="nav-login" href="app.html" data-auth="account" hidden>Account</a>
+  <a class="nav-cta" href="signup.html" data-auth="signup">Open account</a>
+  <button class="nav-cta" type="button" data-auth="logout" hidden>Log out</button>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <svg class="hero-chart-bg" viewBox="0 0 460 560" fill="none" aria-hidden="true">
+    <g stroke="#e4e4ec" stroke-width="1">
+      <line x1="40" y1="0" x2="40" y2="560"/><line x1="140" y1="0" x2="140" y2="560"/><line x1="240" y1="0" x2="240" y2="560"/><line x1="340" y1="0" x2="340" y2="560"/>
+      <line x1="0" y1="80" x2="460" y2="80"/><line x1="0" y1="180" x2="460" y2="180"/><line x1="0" y1="280" x2="460" y2="280"/><line x1="0" y1="380" x2="460" y2="380"/><line x1="0" y1="480" x2="460" y2="480"/>
+    </g>
+    <g fill="#c9cad4" font-family="Inter,sans-serif" font-size="12" font-weight="500">
+      <text x="0" y="84">70K</text><text x="0" y="184">60K</text><text x="0" y="284">50K</text><text x="0" y="384">40K</text><text x="0" y="484">30K</text><text x="360" y="84">100K</text><text x="370" y="184">20K</text>
+    </g>
+  </svg>
+  <div class="wrap">
+    <div class="hero-badge" data-hero><span class="badge"><span class="dot"></span>One platform · many partner banks</span></div>
+    <h1 aria-label="More yield on your cash, without bank hopping">
+      <span class="line"><span data-hero-line>More yield on your cash,</span></span>
+      <span class="line"><span data-hero-line>without bank hopping</span></span>
+    </h1>
+    <p class="hero-sub" data-hero>Zemp & Partner connects savers and conservative investors with partner banks — overnight cash, term deposits and simple ETF portfolios, without opening an account at every bank yourself.</p>
+    <div data-hero><a class="btn btn-dark" href="signup.html">Open account</a></div>
+    <p class="hero-micro" data-hero>Already a client? <a href="login.html" style="font-weight:600;color:var(--ink)">Log in</a></p>
+
+    <div class="hero-dash" data-hero-dash>
+      <div class="dash" aria-label="Marketplace overview">
+        <aside class="dash-side">
+          <div class="dash-brand">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="12" height="12" rx="4" fill="url(#lgm)"/><rect x="10" y="10" width="12" height="12" rx="4" fill="url(#lgm)" opacity=".55"/></svg>
+            Zemp & Partner
+          </div>
+          <div class="dash-nav active"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="11" width="7" height="10" rx="1.5"/><rect x="3" y="15" width="7" height="6" rx="1.5"/></svg>Overview</div>
+          <div class="dash-nav"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>Accounts</div>
+          <div class="dash-nav"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-8h6v8"/></svg>Banks</div>
+          <div class="dash-nav"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 12.4a2 2 0 002 1.6h9.4a2 2 0 002-1.6L23 6H6"/></svg>Marketplace</div>
+          <div class="dash-nav"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>Overnight</div>
+          <div class="dash-nav"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>Term deposits</div>
+          <div class="dash-nav"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-6 4 4 6-8 3 4"/><path d="M3 21h18"/></svg>ETF-Portfolios</div>
+          <div class="dash-nav"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13"/></svg>Partner</div>
+          <div class="dash-side-foot">
+            <div class="dash-nav"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 015.8 1c0 2-3 3-3 3M12 17h.01"/></svg>Help</div>
+            <div class="dash-nav"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>Settings</div>
+          </div>
+        </aside>
+        <div class="dash-main">
+          <div class="dash-head">
+            <h4>Overview</h4>
+            <div class="icons">
+              <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg></span>
+              <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 01-3.4 0"/></svg></span>
+            </div>
+            <div class="dash-user">
+              <img class="avatar" src="assets/avatars/a1.png" alt="Anna Keller">
+              <div><b>Anna Keller</b><i>Client account</i></div>
+            </div>
+          </div>
+          <div class="dash-balance">
+            <div>
+              <div class="lbl">Total assets</div>
+              <div class="amt">48,920.15 €</div>
+            </div>
+            <p class="note">HSBC · Deutsche Bank · N26 · DKB — <b>one login</b></p>
+            <svg width="150" height="56" viewBox="0 0 150 56" fill="none" aria-hidden="true">
+              <path d="M2 46 C20 44 28 30 44 32 S72 44 88 30 S124 8 148 12" stroke="#16a34a" stroke-width="2.4" stroke-linecap="round"/>
+              <path d="M2 46 C20 44 28 30 44 32 S72 44 88 30 S124 8 148 12 V56 H2 Z" fill="url(#gg1)" opacity=".18"/>
+              <defs><linearGradient id="gg1" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#16a34a"/><stop offset="1" stop-color="#16a34a" stop-opacity="0"/></linearGradient></defs>
+            </svg>
+          </div>
+          <div class="stat-row">
+            <div class="stat-card"><div class="lbl">Overnight</div><div class="val">3.80%</div><div class="delta up">Quenzia Direct <em>p.a.</em></div>
+              <svg width="100%" height="26" viewBox="0 0 120 26" preserveAspectRatio="none"><path d="M2 18 C20 20 34 10 52 12 S88 6 118 7" stroke="#16a34a" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+            <div class="stat-card"><div class="lbl">Term 24M</div><div class="val">3.35%</div><div class="delta up">Hallovar <em>Credit union</em></div>
+              <svg width="100%" height="26" viewBox="0 0 120 26" preserveAspectRatio="none"><path d="M2 18 C20 20 34 10 52 12 S88 6 118 7" stroke="#16a34a" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+            <div class="stat-card"><div class="lbl">Conservative ETF</div><div class="val">0.18%</div><div class="delta up">TER <em>Kyndal 20/80</em></div>
+              <svg width="100%" height="26" viewBox="0 0 120 26" preserveAspectRatio="none"><path d="M2 9 C24 7 34 15 54 13 S90 21 118 19" stroke="#ef4444" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          </div>
+          <div class="pipe">
+            <div class="pipe-head">
+              <b>Yield vs current account</b>
+              <div class="pipe-tabs"><span>1W</span><span class="on">1M</span><span>6M</span><span>1Y</span></div>
+              <span class="pipe-filter"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg>Filter</span>
+            </div>
+            <div class="pipe-chart">
+              <svg viewBox="0 0 640 200" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="pg1" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#4f6bf5" stop-opacity=".22"/><stop offset="1" stop-color="#4f6bf5" stop-opacity="0"/></linearGradient>
+                  <linearGradient id="pg2" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ef4444" stop-opacity=".16"/><stop offset="1" stop-color="#ef4444" stop-opacity="0"/></linearGradient>
+                </defs>
+                <g stroke="#eeeef3"><line x1="30" y1="30" x2="640" y2="30"/><line x1="30" y1="80" x2="640" y2="80"/><line x1="30" y1="130" x2="640" y2="130"/><line x1="30" y1="175" x2="640" y2="175"/></g>
+                <g fill="#b7bac5" font-family="Inter,sans-serif" font-size="10" font-weight="500">
+                  <text x="0" y="34">1K</text><text x="0" y="84">500</text><text x="0" y="134">250</text><text x="0" y="179">100</text><text x="0" y="198">0</text>
+                  <text x="40" y="198">Jan</text><text x="140" y="198">Feb</text><text x="240" y="198">Mar</text><text x="340" y="198">Apr</text><text x="440" y="198">May</text><text x="540" y="198">Jun</text>
+                </g>
+                <path d="M40 150 C90 140 120 110 170 116 S260 70 310 78 S400 46 450 60 S560 40 620 30 V180 H40 Z" fill="url(#pg1)"/>
+                <path d="M40 150 C90 140 120 110 170 116 S260 70 310 78 S400 46 450 60 S560 40 620 30" stroke="#4f6bf5" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+                <path d="M40 168 C100 164 140 150 190 152 S280 128 330 134 S420 112 470 120 S570 104 620 96 V180 H40 Z" fill="url(#pg2)"/>
+                <path d="M40 168 C100 164 140 150 190 152 S280 128 330 134 S420 112 470 120 S570 104 620 96" stroke="#ef4444" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+                <line x1="352" y1="20" x2="352" y2="180" stroke="#c9cad4" stroke-dasharray="4 4"/>
+                <circle cx="352" cy="72" r="4.5" fill="#4f6bf5" stroke="#fff" stroke-width="2"/>
+                <circle cx="352" cy="131" r="4" fill="#ef4444" stroke="#fff" stroke-width="2"/>
+              </svg>
+              <div class="pipe-tip"><b>Apr 2025</b><span class="r">Marketplace 3.41%</span><br><span class="s">Current 0.01%</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOCIAL PROOF ============ -->
+<section class="social">
+  <div class="wrap">
+    <p data-reveal>One marketplace — <strong>Overnight cash, term deposits &amp; ETF portfolios</strong></p>
+  </div>
+  <div class="marquee" data-reveal aria-hidden="true">
+    <div class="marquee-track">
+      <span class="mlogo"><span class="ml" style="background:#DB0011">HS</span>HSBC</span>
+      <span class="mlogo"><span class="ml" style="background:#0018A8">DB</span>Deutsche Bank</span>
+      <span class="mlogo"><span class="ml" style="background:#FFD200;color:#111">C</span>Commerzbank</span>
+      <span class="mlogo"><span class="ml" style="background:#FF6200">IN</span>ING</span>
+      <span class="mlogo"><span class="ml" style="background:#191919">N</span>N26</span>
+      <span class="mlogo"><span class="ml" style="background:#00ADEF">DK</span>DKB</span>
+      <span class="mlogo"><span class="ml" style="background:#E30613">S</span>Sparkasse</span>
+      <span class="mlogo"><span class="ml" style="background:#EC0000">SA</span>Santander</span>
+      <span class="mlogo"><span class="ml" style="background:#00AEEF">BA</span>Barclays</span>
+      <span class="mlogo"><span class="ml" style="background:#00915A">BN</span>BNP Paribas</span>
+      <span class="mlogo"><span class="ml" style="background:#DB0011">HS</span>HSBC</span>
+      <span class="mlogo"><span class="ml" style="background:#0018A8">DB</span>Deutsche Bank</span>
+      <span class="mlogo"><span class="ml" style="background:#FFD200;color:#111">C</span>Commerzbank</span>
+      <span class="mlogo"><span class="ml" style="background:#FF6200">IN</span>ING</span>
+      <span class="mlogo"><span class="ml" style="background:#191919">N</span>N26</span>
+      <span class="mlogo"><span class="ml" style="background:#00ADEF">DK</span>DKB</span>
+      <span class="mlogo"><span class="ml" style="background:#E30613">S</span>Sparkasse</span>
+      <span class="mlogo"><span class="ml" style="background:#EC0000">SA</span>Santander</span>
+      <span class="mlogo"><span class="ml" style="background:#00AEEF">BA</span>Barclays</span>
+      <span class="mlogo"><span class="ml" style="background:#00915A">BN</span>BNP Paribas</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY ============ -->
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="badge" data-reveal>Marketplace</span>
+      <h2 class="sec" data-reveal>Why savers want a platform</h2>
+      <p class="sub" data-reveal>The best rates are rarely at your home bank. We bring partner banks and credit unions into one view.</p>
+    </div>
+    <div class="bento">
+      <div class="bcard" data-reveal>
+        <div class="mock">
+          <div class="taskrow"><div class="tt"><div><b>Quenzia overnight 3.80%</b><i>available daily</i></div></div><div class="astack"><img class="avatar" src="assets/avatars/a2.png" alt=""><img class="avatar" src="assets/avatars/a3.png" alt=""><img class="avatar" src="assets/avatars/a4.png" alt=""></div></div>
+          <div class="taskrow"><div class="tt"><div><b>Hallovar term 24M</b><i>3.35% p.a.</i></div></div><div class="astack"><img class="avatar" src="assets/avatars/a3.png" alt=""><img class="avatar" src="assets/avatars/a1.png" alt=""></div></div>
+          <div class="taskrow"><div class="tt"><div><b>Kyndal ETF 20/80</b><i>TER 0.18%</i></div></div><div class="astack"><img class="avatar" src="assets/avatars/a4.png" alt=""><img class="avatar" src="assets/avatars/a2.png" alt=""><img class="avatar" src="assets/avatars/a1.png" alt=""></div></div>
+        </div>
+        <h3>Compare instead of researching</h3>
+        <p>Rates from banks and credit unions side by side — without opening an account at every institution yourself.</p>
+      </div>
+      <div class="bcard" data-reveal>
+        <div class="mock">
+          <div class="bars">
+            <div class="bar"><span style="width:42%;background:var(--blue)"></span></div>
+            <div class="bar"><span style="width:78%;background:var(--pink)"></span></div>
+            <div class="bar"><span style="width:22%;background:var(--cyan)"></span></div>
+          </div>
+          <div class="blegend">
+            <i style="--c:var(--blue)">Overnight</i>
+            <i style="--c:var(--pink)">Term deposits</i>
+            <i style="--c:var(--cyan)">ETF</i>
+          </div>
+        </div>
+        <h3>Cash where it works</h3>
+        <p>High-yield overnight cash for flexibility, term deposits for higher rates, ETF portfolios for simple, low-cost growth.</p>
+      </div>
+      <div class="bcard" data-reveal>
+        <div class="mock">
+          <div class="mini-stats">
+            <div class="mini-stat"><div class="lbl">Partner</div><div class="val">7+</div><div class="delta up" style="color:var(--green)">Banks &amp; Unions</div></div>
+            <div class="mini-stat"><div class="lbl">Deposit cover</div><div class="val">100k</div><div class="delta up" style="color:var(--green)">per institution</div></div>
+            <div class="mini-stat"><div class="lbl">ETF TER from</div><div class="val">0.16%</div><div class="delta up" style="color:var(--green)">selected regions</div></div>
+            <div class="mini-stat"><div class="lbl">One login</div><div class="val">1</div><div class="delta up" style="color:var(--green)">full marketplace</div></div>
+          </div>
+        </div>
+        <h3>Without bank hopping</h3>
+        <p>One account at Zemp & Partner instead of research, forms and app sprawl at every single bank.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KEY TOOLS ============ -->
+<section class="keytools" id="keytools">
+  <div class="wrap">
+    <div class="kt-grid" id="ktPin">
+      <div class="kt-left">
+        <span class="badge" style="align-self:flex-start">Three products</span>
+        <h2 class="sec">Everything your cash<br>could need</h2>
+        <div class="kt-tabs" role="tablist" aria-label="Products">
+          <button class="kt-tab on" role="tab" aria-selected="true" data-kt="0">Overnight</button>
+          <button class="kt-tab" role="tab" aria-selected="false" data-kt="1">Term deposits</button>
+          <button class="kt-tab" role="tab" aria-selected="false" data-kt="2">ETF-Portfolios</button>
+        </div>
+      </div>
+      <div class="kt-right">
+        <div class="kt-panel on" data-kp="0">
+          <div class="mock-card">
+            <div class="greet"><b>Good day</b>
+              <div class="gicons">
+                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg></span>
+                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 01-3.4 0"/></svg></span>
+              </div>
+            </div>
+            <div class="dash-balance" style="box-shadow:none">
+              <div><div class="lbl">Total assets</div><div class="amt">48,920.15 €</div></div>
+              <p class="note">HSBC · Deutsche Bank · N26 · DKB — <b>one login</b></p>
+              <svg width="130" height="50" viewBox="0 0 150 56" fill="none"><path d="M2 46 C20 44 28 30 44 32 S72 44 88 30 S124 8 148 12" stroke="#16a34a" stroke-width="2.4" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+          <div class="cap"><b>Overnight</b><p>High-yield, daily-available deposits at partner banks — for cash that needs to stay flexible.</p></div>
+        </div>
+        <div class="kt-panel" data-kp="1">
+          <div class="mock-card">
+            <b style="font-size:14.5px;display:block;margin-bottom:14px">Term deposits compared</b>
+            <table class="deals-table">
+              <thead><tr><th>Partner</th><th>Term</th><th>Status</th><th>Rate</th></tr></thead>
+              <tbody>
+                <tr><td>Quenzia</td><td class="amt">12 months</td><td><span class="stage prop">Term deposits</span></td><td><div class="prob"><div class="pbar"><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i></div><span>3.15%</span></div></td></tr>
+                <tr><td>Hallovar</td><td class="amt">24 months</td><td><span class="stage neg">Credit union</span></td><td><div class="prob"><div class="pbar"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></div><span>3.35%</span></div></td></tr>
+                <tr><td>Tresmo</td><td class="amt">36 months</td><td><span class="stage disc">Bank</span></td><td><div class="prob"><div class="pbar"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></div><span>3.50%</span></div></td></tr>
+                <tr><td>Lumenix</td><td class="amt">6 months</td><td><span class="stage won">short</span></td><td><div class="prob"><div class="pbar"><i class="f"></i><i class="f"></i><i></i><i></i><i></i></div><span>2.95%</span></div></td></tr>
+                <tr><td>Bravura</td><td class="amt">12 months</td><td><span class="stage neg">CU</span></td><td><div class="prob"><div class="pbar"><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i></div><span>3.20%</span></div></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="cap"><b>Term deposits / CDs</b><p>Lock in a term and secure the rate. Certificates of deposit and term deposits from partners — in one list instead of ten applications.</p></div>
+        </div>
+        <div class="kt-panel" data-kp="2">
+          <div class="mock-card">
+            <div class="kan-legend">
+              <span><i class="kdot" style="background:var(--blue)"></i>Regulated <b>Core</b></span>
+              <span><i class="kdot" style="background:var(--indigo)"></i>In discussion <b>next step</b></span>
+              <span><i class="kdot" style="background:var(--pink)"></i>Open <b>review</b></span>
+            </div>
+            <div class="kan-grid">
+              <div class="kcard"><b>Conservative 20/80</b><div class="amt">0.18% <i>TER</i></div><p>Capital preservation with modest growth</p><div class="kfoot"><img class="avatar" src="assets/avatars/a2.png" alt=""><span>DE/AT</span></div></div>
+              <div class="kcard lift"><b>Balanced 40/60</b><div class="amt">0.20% <i>TER</i></div><p>Steady build without single stocks</p><div class="kfoot"><img class="avatar" src="assets/avatars/a3.png" alt=""><span>DE/AT/NL</span></div></div>
+              <div class="kcard"><b>Core World 60/40</b><div class="amt">0.16% <i>TER</i></div><p>Broad world market, low cost</p><div class="kfoot"><img class="avatar" src="assets/avatars/a4.png" alt=""><span>DE/AT</span></div></div>
+              <div class="kcard"><b>Bond share</b><div class="amt">80 % <i>conservative</i></div><p>For cautious investors</p><div class="kfoot"><img class="avatar" src="assets/avatars/a1.png" alt=""><span>ETF</span></div></div>
+              <div class="kcard"><b>Equity share</b><div class="amt">20 % <i>global</i></div><p>Without single-stock research</p><div class="kfoot"><img class="avatar" src="assets/avatars/a2.png" alt=""><span>ETF</span></div></div>
+              <div class="kcard ghost">Choose a portfolio</div>
+            </div>
+          </div>
+          <div class="cap"><b>ETF-Portfolios</b><p>In selected regions: simple, low-cost ETF mixes — without comparing funds yourself or opening broking accounts at several firms.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DARK PANEL ============ -->
+<section class="dark">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="badge" data-reveal style="background:var(--darkcard);border-color:var(--darkline);color:#d7d7de">✦ The platform</span>
+      <h2 class="sec" data-reveal>What is inside Zemp & Partner</h2>
+      <p class="sub" data-reveal>A marketplace for savers: partner banks, credit unions and simple ETF portfolios — one login.</p>
+    </div>
+    <div class="dgrid">
+      <div class="dcard" data-reveal>
+        <div class="icn"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="1.8" stroke-linecap="round"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/></svg></div>
+        <h3>High-yield overnight cash</h3><p>Daily-available cash at partner banks that pay more than a current account.</p>
+      </div>
+      <div class="dcard" data-reveal>
+        <div class="icn"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="1.8" stroke-linecap="round"><circle cx="6" cy="6" r="2.6"/><circle cx="6" cy="18" r="2.6"/><circle cx="18" cy="12" r="2.6"/><path d="M8.3 7.3l7.4 3.4M8.3 16.7l7.4-3.4"/></svg></div>
+        <h3>Term deposits &amp; CDs</h3><p>Terms from 6 to 36 months — lock in the rate without applying at every bank.</p>
+      </div>
+      <div class="dcard" data-reveal>
+        <div class="icn"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12h4l2-7 2 14 2-7h2"/></svg></div>
+        <h3>Partner network</h3><p>Banks and credit unions in one marketplace instead of app sprawl.</p>
+      </div>
+      <div class="dcard" data-reveal>
+        <div class="icn"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="1.8" stroke-linecap="round"><path d="M3 17l5-6 4 4 6-8 3 4"/><path d="M3 21h18"/></svg></div>
+        <h3>ETF-Portfolios</h3><p>Conservative mixes with a low TER — in selected regions, without fund research.</p>
+      </div>
+      <div class="dcard" data-reveal>
+        <div class="icn"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="1.8" stroke-linecap="round"><circle cx="5" cy="12" r="2.4"/><circle cx="19" cy="6" r="2.4"/><circle cx="19" cy="18" r="2.4"/><path d="M7.2 10.8l9.6-3.6M7.2 13.2l9.6 3.6"/></svg></div>
+        <h3>Deposit protection</h3><p>Bank deposits generally up to €100,000 per institution and customer — we show where your cash sits.</p>
+      </div>
+      <div class="dcard" data-reveal>
+        <div class="icn"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>One login</h3><p>Compare, deposit, allocate. No manual account opening at every single bank.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GROWTH GEAR ============ -->
+<section class="growth">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="badge" data-reveal>Marketplace</span>
+      <h2 class="sec" data-reveal>Rates at a glance</h2>
+      <p class="sub" data-reveal>Compare overnight cash, term deposits and ETF costs — then open with one account.</p>
+    </div>
+    <div class="gtabs" data-reveal role="tablist" aria-label="Product types">
+      <button class="gtab on" data-gt="0" role="tab" aria-selected="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>Overnight</button>
+      <button class="gtab" data-gt="1" role="tab" aria-selected="false"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4f6bf5" stroke-width="2"><path d="M12 2l9 5-9 5-9-5z"/><path d="M3 12l9 5 9-5"/></svg>Term deposits</button>
+      <button class="gtab" data-gt="2" role="tab" aria-selected="false"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>ETF</button>
+    </div>
+    <div class="analytics" data-reveal>
+      <h4 id="gtTitle">Overnight</h4>
+      <table class="atable">
+        <thead><tr><th>Product</th><th>Focus</th><th>Note</th><th>Status</th></tr></thead>
+        <tbody id="gtBody"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="testi">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="badge" data-reveal>The firm</span>
+      <h2 class="sec" data-reveal>An office in Baar,<br>Canton of Zug</h2>
+    </div>
+    <div class="tgrid">
+      <div class="tstat pink" data-reveal><div class="num">2006</div><div class="cap">founded in Baar</div></div>
+      <div class="tquote" data-reveal>
+        <p>“One platform, many partner banks — so savers get more from their cash without starting over at every institution.”</p>
+        <div class="who"><img class="avatar" src="assets/avatars/a3.png" alt="Raimund Zemp"><div><b>Raimund Zemp</b><i>Chairman of the board</i></div></div>
+      </div>
+    </div>
+    <div class="tgrid2">
+      <div class="tstat white" data-reveal><div class="num">AG</div><div class="cap">FINIG-licensed asset manager</div></div>
+      <div class="tstat blue" data-reveal><div class="num">UID</div><div class="cap">CHE-113.281.174 · Zug</div></div>
+      <div class="tquote stand" data-reveal>
+        <p>“Overnight cash for flexibility, term deposits for the rate, ETFs only where they fit — and all in one login.”</p>
+        <div class="who"><img class="avatar" src="assets/avatars/a5.png" alt="Michael Zemp"><div><b>Michael Zemp</b><i>Board member</i></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="badge" data-reveal>Intro meeting</span>
+      <h2 class="sec" data-reveal>How we start</h2>
+      <div class="ptoggle" data-reveal>
+        <span>Private</span>
+        <button class="switch" id="billSwitch" role="switch" aria-checked="false" aria-label="Switch between private and business"></button>
+        <span>Business<span class="save">workplace</span></span>
+      </div>
+    </div>
+    <div class="pcards">
+      <div class="pcard" data-reveal>
+        <h3>Introduction</h3>
+        <p class="pdesc">No-obligation intro meeting — in person in Baar or by phone.</p>
+        <div class="price"><span data-price data-m="0" data-y="0">0</span> €<i> / meeting</i></div>
+        <div class="billed" data-billed>for private clients</div>
+        <a class="btn btn-outline" href="signup.html">Open account</a>
+        <div class="get">What you get:</div>
+        <div class="pfeat">Marketplace access for overnight cash &amp; term deposits</div>
+        <div class="pfeat">Comparison across partner banks</div>
+        <div class="pfeat">One login instead of many accounts</div>
+      </div>
+      <div class="pcard feat" data-reveal>
+        <h3>Full advice</h3>
+        <p class="pdesc">Full marketplace access: overnight cash, term deposits and ETF portfolios in selected regions.</p>
+        <div class="price">by <i>arrangement</i></div>
+        <div class="billed" data-billed>for private clients</div>
+        <a class="btn btn-dark" href="signup.html">Create account</a>
+        <div class="get">What you get:</div>
+        <div class="pfeat">All partner banks and credit unions</div>
+        <div class="pfeat">ETF portfolios where available</div>
+        <div class="pfeat">Holdings overview with average yield</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq">
+  <div class="wrap">
+    <div class="faq-grid">
+      <div class="faq-left">
+        <span class="badge" data-reveal>FAQ</span>
+        <h2 class="sec" data-reveal>Frequently asked questions</h2>
+        <p class="sub" data-reveal>Short and clear — before you call.</p>
+      </div>
+      <div>
+        <div class="acc open" data-reveal>
+          <button class="acc-head" aria-expanded="true">What is Zemp & Partner?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="acc-body"><p>Zemp & Partner Asset Advisory AG is a FINIG-licensed asset manager in Baar. Through the platform we connect you with partner banks for overnight cash, term deposits and — in some regions — simple ETF portfolios. One login instead of an account at every bank.</p></div>
+        </div>
+        <div class="acc" data-reveal>
+          <button class="acc-head" aria-expanded="false">Are my deposits protected?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="acc-body"><p>Bank deposits in the EU are generally covered by statutory deposit protection up to €100,000 per customer and institution. ETF portfolios are segregated assets and move with the market. Rates on the platform are illustrative.</p></div>
+        </div>
+        <div class="acc" data-reveal>
+          <button class="acc-head" aria-expanded="false">How do I get started?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="acc-body"><p>Open an account, sign in, deposit, and open products in the marketplace. Zemp & Partner Asset Advisory AG in Baar (Canton of Zug) remains the operator — imprint and commercial register are below.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SHOWCASE ============ -->
+<section class="showcase">
+  <div class="wrap">
+    <div data-reveal>
+      <div class="dash" aria-label="Marketplace overview">
+        <aside class="dash-side">
+          <div class="dash-brand">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="12" height="12" rx="4" fill="url(#lgm)"/><rect x="10" y="10" width="12" height="12" rx="4" fill="url(#lgm)" opacity=".55"/></svg>
+            Zemp & Partner
+          </div>
+          <div class="dash-nav active"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="11" width="7" height="10" rx="1.5"/><rect x="3" y="15" width="7" height="6" rx="1.5"/></svg>Overview</div>
+          <div class="dash-nav"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>Accounts</div>
+          <div class="dash-nav"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-8h6v8"/></svg>Banks</div>
+          <div class="dash-nav"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 12.4a2 2 0 002 1.6h9.4a2 2 0 002-1.6L23 6H6"/></svg>Marketplace</div>
+          <div class="dash-nav"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>Overnight</div>
+          <div class="dash-nav"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>Term deposits</div>
+          <div class="dash-nav"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-6 4 4 6-8 3 4"/><path d="M3 21h18"/></svg>ETF-Portfolios</div>
+          <div class="dash-nav"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13"/></svg>Partner</div>
+          <div class="dash-side-foot">
+            <div class="dash-nav"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 015.8 1c0 2-3 3-3 3M12 17h.01"/></svg>Help</div>
+            <div class="dash-nav"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>Settings</div>
+          </div>
+        </aside>
+        <div class="dash-main">
+          <div class="dash-head">
+            <h4>Overview</h4>
+            <div class="icons">
+              <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg></span>
+              <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 01-3.4 0"/></svg></span>
+            </div>
+            <div class="dash-user">
+              <img class="avatar" src="assets/avatars/a1.png" alt="Anna Keller">
+              <div><b>Anna Keller</b><i>Client account</i></div>
+            </div>
+          </div>
+          <div class="dash-balance">
+            <div><div class="lbl">Total assets</div><div class="amt">48,920.15 €</div></div>
+            <p class="note">HSBC · Deutsche Bank · N26 · DKB — <b>one login</b></p>
+            <svg width="150" height="56" viewBox="0 0 150 56" fill="none" aria-hidden="true">
+              <path d="M2 46 C20 44 28 30 44 32 S72 44 88 30 S124 8 148 12" stroke="#16a34a" stroke-width="2.4" stroke-linecap="round"/>
+              <path d="M2 46 C20 44 28 30 44 32 S72 44 88 30 S124 8 148 12 V56 H2 Z" fill="url(#gg2)" opacity=".18"/>
+              <defs><linearGradient id="gg2" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#16a34a"/><stop offset="1" stop-color="#16a34a" stop-opacity="0"/></linearGradient></defs>
+            </svg>
+          </div>
+          <div class="stat-row">
+            <div class="stat-card"><div class="lbl">Overnight</div><div class="val">3.80%</div><div class="delta up">Quenzia Direct <em>p.a.</em></div>
+              <svg width="100%" height="26" viewBox="0 0 120 26" preserveAspectRatio="none"><path d="M2 18 C20 20 34 10 52 12 S88 6 118 7" stroke="#16a34a" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+            <div class="stat-card"><div class="lbl">Term 24M</div><div class="val">3.35%</div><div class="delta up">Hallovar <em>Credit union</em></div>
+              <svg width="100%" height="26" viewBox="0 0 120 26" preserveAspectRatio="none"><path d="M2 18 C20 20 34 10 52 12 S88 6 118 7" stroke="#16a34a" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+            <div class="stat-card"><div class="lbl">Conservative ETF</div><div class="val">0.18%</div><div class="delta up">TER <em>Kyndal 20/80</em></div>
+              <svg width="100%" height="26" viewBox="0 0 120 26" preserveAspectRatio="none"><path d="M2 9 C24 7 34 15 54 13 S90 21 118 19" stroke="#ef4444" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          </div>
+          <div class="pipe">
+            <div class="pipe-head">
+              <b>Yield vs current account</b>
+              <div class="pipe-tabs"><span>1W</span><span class="on">1M</span><span>6M</span><span>1Y</span></div>
+              <span class="pipe-filter"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg>Filter</span>
+            </div>
+            <div class="pipe-chart" style="min-height:220px">
+              <svg viewBox="0 0 640 200" preserveAspectRatio="none" aria-hidden="true">
+                <g stroke="#eeeef3"><line x1="30" y1="30" x2="640" y2="30"/><line x1="30" y1="80" x2="640" y2="80"/><line x1="30" y1="130" x2="640" y2="130"/><line x1="30" y1="175" x2="640" y2="175"/></g>
+                <g fill="#b7bac5" font-family="Inter,sans-serif" font-size="10" font-weight="500">
+                  <text x="0" y="34">1K</text><text x="0" y="84">500</text><text x="0" y="134">250</text><text x="0" y="179">100</text><text x="0" y="198">0</text>
+                  <text x="40" y="198">Jan</text><text x="140" y="198">Feb</text><text x="240" y="198">Mar</text><text x="340" y="198">Apr</text><text x="440" y="198">May</text><text x="540" y="198">Jun</text>
+                </g>
+                <path d="M40 150 C90 140 120 110 170 116 S260 70 310 78 S400 46 450 60 S560 40 620 30 V180 H40 Z" fill="url(#pg1)"/>
+                <path d="M40 150 C90 140 120 110 170 116 S260 70 310 78 S400 46 450 60 S560 40 620 30" stroke="#4f6bf5" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+                <path d="M40 168 C100 164 140 150 190 152 S280 128 330 134 S420 112 470 120 S570 104 620 96 V180 H40 Z" fill="url(#pg2)"/>
+                <path d="M40 168 C100 164 140 150 190 152 S280 128 330 134 S420 112 470 120 S570 104 620 96" stroke="#ef4444" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+                <line x1="352" y1="20" x2="352" y2="180" stroke="#c9cad4" stroke-dasharray="4 4"/>
+                <circle cx="352" cy="72" r="4.5" fill="#4f6bf5" stroke="#fff" stroke-width="2"/>
+                <circle cx="352" cy="131" r="4" fill="#ef4444" stroke="#fff" stroke-width="2"/>
+              </svg>
+              <div class="pipe-tip"><b>Apr 2025</b><span class="r">Marketplace 3.41%</span><br><span class="s">Current 0.01%</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="cta" id="cta">
+  <div class="wrap">
+    <svg class="mark" data-reveal width="52" height="52" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="4" fill="url(#lgm)"/><rect x="10" y="10" width="12" height="12" rx="4" fill="url(#lgm)" opacity=".55"/></svg>
+    <h2 data-reveal>Ready for more yield — one platform.</h2>
+    <p data-reveal>Open an account, compare, invest. Without bank hopping.</p>
+    <div data-reveal><a class="btn btn-dark" href="signup.html">Open account</a></div>
+  </div>
+</section>
+
+<!-- ============ IMPRINT ============ -->
+<section class="legal" id="imprint">
+  <div class="wrap">
+    <span class="badge" data-reveal>Information pursuant to Art. 3(1)(s) UWG</span>
+    <h2 class="sec" data-reveal>Imprint</h2>
+    <p class="sub" data-reveal>Authoritative company data from the Swiss commercial register.</p>
+    <dl data-reveal>
+      <dt>Company</dt><dd>Zemp & Partner Asset Advisory AG</dd>
+      <dt>Legal form</dt><dd>Company limited by shares (AG)</dd>
+      <dt>Status</dt><dd>Active · founded 24 November 2006</dd>
+      <dt>Registered office</dt><dd>Lindenstrasse 10, 6340 Baar, Canton of Zug</dd>
+      <dt>UID</dt><dd>CHE-113.281.174</dd>
+      <dt>Commercial register no.</dt><dd>CH-170.3.030.110-6</dd>
+      <dt>Latest register update</dt><dd>6 October 2025</dd>
+      <dt>Sector</dt><dd>Fund management / K66 — Activities auxiliary to financial services and insurance</dd>
+      <dt>Coordinates</dt><dd>47.1838, 8.5178</dd>
+      <dt>Board of directors</dt><dd>Raimund Zemp — Chairman of the board; Michael Zemp — Board member</dd>
+      <dt>Authorized signatories</dt><dd>Angela Meier — Authorized signatory; Michael Christoph Annen — Authorized signatory (Kuesnacht SZ)</dd>
+      <dt>Purpose</dt><dd>Asset manager under Art. 17(1) FINIG. Provision of financial services, in particular asset management under Art. 3(c)(3) FIDLEG, as well as services in finance, pension planning and succession for private and professional clients in Switzerland and abroad.</dd>
+      <dt>LEI</dt><dd>529900KY8CNCGR9ONA21 (ACTIVE)</dd>
+      <dt>Ombuds office</dt><dd>Ombuds Office for Financial Service Providers (OFD), FINMA-recognized — member since 23 October 2020</dd>
+    </dl>
+    <p data-reveal style="margin-top:22px">For legally binding information (e.g. due diligence) we recommend a current extract from the commercial register of the Canton of Zug (Zefix). OFD membership is required for FINIG-licensed asset managers.</p>
+  </div>
+</section>
+
+<section class="legal" id="privacy">
+  <div class="wrap">
+    <span class="badge" data-reveal>Privacy</span>
+    <h2 class="sec" data-reveal>Privacy policy</h2>
+    <p data-reveal>The controller for data processing on this website is Zemp & Partner Asset Advisory AG, Lindenstrasse 10, 6340 Baar.</p>
+    <p data-reveal>This page is a static company presentation. We do not use contact forms, tracking cookies or analytics tools. When you visit, your browser sends technically required data (e.g. IP address, time, requested file) to the server that delivers the page. This data is used for operation and security, not advertising.</p>
+    <p data-reveal>Inter is loaded via Google Fonts. Google (Google Ireland Limited) may process your IP address. The legal basis is Art. 6(1)(f) GDPR (legitimate interest in a consistent presentation). You can object in your browser by blocking third-party content.</p>
+    <p data-reveal>If you contact us, we process the details needed for advice. You have the right of access, rectification, erasure, restriction and data portability, and the right to lodge a complaint with the Federal Data Protection and Information Commissioner (FDPIC).</p>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand" data-reveal>
+        <a class="nav-logo" href="#top" style="font-size:19px">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="12" height="12" rx="4" fill="url(#lgm)"/><rect x="10" y="10" width="12" height="12" rx="4" fill="url(#lgm)" opacity=".55"/></svg>
+          Zemp & Partner
+        </a>
+        <p>FINIG-licensed asset manager — marketplace for overnight cash, term deposits and ETF portfolios. Zemp & Partner Asset Advisory AG, Baar.</p>
+        <div class="socials">
+          <a href="https://maps.google.com/?q=47.1838,8.5178" aria-label="Address on the map"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.2 7-12a7 7 0 10-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.2"/></svg></a>
+          <a href="#imprint" aria-label="Imprint"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 8h.01"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col" data-reveal>
+        <h5>Office</h5>
+        <a href="#why">Services</a><a href="#keytools">Advice</a><a href="#pricing">Intro meeting</a><a href="#imprint">Imprint</a>
+      </div>
+      <div class="foot-col" data-reveal>
+        <h5>Topics</h5>
+        <a href="#keytools">Overnight</a><a href="#keytools">Term deposits</a><a href="#keytools">ETF</a>
+      </div>
+      <div class="foot-col" data-reveal>
+        <h5>Legal</h5>
+        <a href="#imprint">Imprint</a><a href="#privacy">Privacy</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bar">© 2026 Zemp & Partner Asset Advisory AG · CHE-113.281.174 · Baar</div>
+</footer>
+
+<script src="assets/lib/gsap.min.js"></script>
+<script src="assets/lib/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  'use strict';
+  var RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (RM) document.documentElement.classList.add('rm');
+
+  /* ---------- Brand / data config ---------- */
+  var GTABLES = [
+    { title:'Overnight', rows:[
+      ['assets/avatars/a1.png','Quenzia Flex','daily','3.80% p.a.','approved'],
+      ['assets/avatars/a2.png','Nordvia Savings','daily','3.65% p.a.','approved'],
+      ['assets/avatars/a3.png','Hallovar members','Credit union','3.55% p.a.','approved'],
+      ['assets/avatars/a4.png','Tresmo Easy','NL','3.40% p.a.','pending'],
+      ['assets/avatars/a2.png','Home-bank current','Compare','0.01% p.a.','pending']
+    ]},
+    { title:'Term deposits', rows:[
+      ['assets/avatars/a3.png','Tresmo 36 months','CD','3.50% p.a.','approved'],
+      ['assets/avatars/a1.png','Hallovar 24 months','Credit union','3.35% p.a.','approved'],
+      ['assets/avatars/a4.png','Bravura 12 months','CU','3.20% p.a.','approved'],
+      ['assets/avatars/a2.png','Quenzia 12 months','Bank','3.15% p.a.','approved'],
+      ['assets/avatars/a3.png','Lumenix 6 months','short','2.95% p.a.','pending']
+    ]},
+    { title:'ETF', rows:[
+      ['assets/avatars/a4.png','Core World 60/40','TER','0.16%','approved'],
+      ['assets/avatars/a2.png','Conservative 20/80','DE/AT','0.18%','approved'],
+      ['assets/avatars/a1.png','Balanced 40/60','DE/AT/NL','0.20%','approved'],
+      ['assets/avatars/a3.png','Not available','UK','—','pending'],
+      ['assets/avatars/a4.png','Selected regions only','Note','review','pending']
+    ]}
+  ];
+
+  function renderGTable(i){
+    var t = GTABLES[i];
+    document.getElementById('gtTitle').textContent = t.title;
+    document.getElementById('gtBody').innerHTML = t.rows.map(function(r){
+      return '<tr><td class="who"><img class="avatar" src="'+r[0]+'" alt="'+r[1]+'">'+r[1]+'</td><td>'+r[2]+'</td><td class="amt">'+r[3]+'</td><td><span class="status '+r[4]+'">'+(r[4]==='approved'?'Recommended':'Consultation')+'</span></td></tr>';
+    }).join('');
+  }
+  renderGTable(0);
+
+  var gtabs = document.querySelectorAll('.gtab');
+  gtabs.forEach(function(btn,i){
+    btn.addEventListener('click', function(){
+      gtabs.forEach(function(b){ b.classList.remove('on'); b.setAttribute('aria-selected','false'); });
+      btn.classList.add('on'); btn.setAttribute('aria-selected','true');
+      renderGTable(i);
+    });
+  });
+
+  /* ---------- Pricing toggle ---------- */
+  var sw = document.getElementById('billSwitch');
+  sw.addEventListener('click', function(){
+    var yearly = sw.classList.toggle('yearly');
+    sw.setAttribute('aria-checked', yearly ? 'true' : 'false');
+    document.querySelectorAll('[data-price]').forEach(function(el){
+      el.textContent = yearly ? el.getAttribute('data-y') : el.getAttribute('data-m');
+    });
+    document.querySelectorAll('[data-billed]').forEach(function(el){
+      el.textContent = yearly ? 'for business clients' : 'for private clients';
+    });
+  });
+
+  /* ---------- FAQ accordion ---------- */
+  document.querySelectorAll('.acc').forEach(function(acc){
+    var head = acc.querySelector('.acc-head'), body = acc.querySelector('.acc-body');
+    function setHeight(){ body.style.maxHeight = acc.classList.contains('open') ? body.scrollHeight + 'px' : '0px'; }
+    head.addEventListener('click', function(){
+      var open = acc.classList.toggle('open');
+      head.setAttribute('aria-expanded', open ? 'true' : 'false');
+      setHeight();
+    });
+    setHeight();
+    window.addEventListener('resize', setHeight);
+  });
+
+  /* ---------- Key Tools panels ---------- */
+  var ktTabs = document.querySelectorAll('.kt-tab');
+  var ktPanels = document.querySelectorAll('.kt-panel');
+  function ktSet(i){
+    ktTabs.forEach(function(t,j){ t.classList.toggle('on', i===j); t.setAttribute('aria-selected', i===j?'true':'false'); });
+    ktPanels.forEach(function(p,j){ p.classList.toggle('on', i===j); });
+  }
+  ktTabs.forEach(function(t,i){ t.addEventListener('click', function(){ ktSet(i); }); });
+
+  /* ---------- Motion ---------- */
+  function showStatic() {
+    document.documentElement.classList.remove("motion");
+    document.querySelectorAll("[data-reveal],[data-hero],[data-hero-dash],[data-hero-line]").forEach(function (el) {
+      el.style.opacity = "1";
+      el.style.transform = "none";
+      el.style.filter = "none";
+    });
+  }
+  if (window.gsap && window.ScrollTrigger && !RM) {
+    document.documentElement.classList.add("motion");
+    try {
+    gsap.registerPlugin(ScrollTrigger);
+
+    /* Hero load: staggered entrance with line-level blur reveal */
+    gsap.set('[data-hero]', {opacity:0, y:26});
+    gsap.set('[data-hero-line]', {yPercent:112, filter:'blur(10px)'});
+    gsap.set('[data-hero-dash]', {opacity:0, y:80});
+    var tl = gsap.timeline({defaults:{ease:'power3.out'}});
+    tl.to('[data-hero]', {opacity:1, y:0, duration:.9, stagger:.12}, .15)
+      .to('[data-hero-line]', {yPercent:0, filter:'blur(0px)', duration:1.05, stagger:.14, ease:'power4.out'}, .3)
+      .to('[data-hero-dash]', {opacity:1, y:0, duration:1.15, ease:'power3.out'}, .75);
+
+    /* Generic scroll reveals — reversible: play on enter, reverse on leave, both directions */
+    gsap.utils.toArray('[data-reveal]').forEach(function(el){
+      if (el.matches('.bcard,.dcard,.pcard,.acc,.tstat,.tquote')) return; /* grouped/directional choreo below */
+      gsap.to(el, {
+        opacity:1, y:0, duration:.9, ease:'power3.out',
+        scrollTrigger:{trigger:el, start:'top 86%', toggleActions:'play reverse play reverse'}
+      });
+    });
+
+    /* Section headings: word-level blur reveal, reversible */
+    document.querySelectorAll('h2.sec').forEach(function(h){
+      var parts = h.innerHTML.split(/<br\s*\/?>/i);
+      h.setAttribute('aria-label', parts.map(function(t){ return t.replace(/<[^>]*>/g,'').trim(); }).filter(Boolean).join(' '));
+      h.innerHTML = parts.map(function(line){
+        return line.trim().split(/\s+/).filter(Boolean).map(function(w){
+          return '<span class="w" aria-hidden="true">'+w+'</span>';
+        }).join(' ');
+      }).join('<br>');
+      gsap.fromTo(h.querySelectorAll('.w'),
+        {opacity:0, y:16, filter:'blur(8px)'},
+        {opacity:1, y:0, filter:'blur(0px)', duration:.7, ease:'power3.out', stagger:.045,
+         scrollTrigger:{trigger:h, start:'top 88%', toggleActions:'play reverse play reverse', pinnedContainer:(h.closest('#ktPin')||undefined)}});
+    });
+
+    /* Card grids: staggered rise, reversible */
+    [['.bento','.bcard'],['.dgrid','.dcard'],['.pcards','.pcard'],['.faq','.acc']].forEach(function(pair){
+      var grid = document.querySelector(pair[0]);
+      if (!grid) return;
+      var cards = grid.querySelectorAll(pair[1]);
+      if (!cards.length) return;
+      gsap.fromTo(cards, {opacity:0, y:34},
+        {opacity:1, y:0, duration:.8, ease:'power3.out', stagger:.09,
+         scrollTrigger:{trigger:grid, start:'top 84%', toggleActions:'play reverse play reverse'}});
+    });
+
+    /* Testimonials: directional slides (stats from left, quotes from right), reversible */
+    gsap.utils.toArray('.tstat').forEach(function(el){
+      gsap.fromTo(el, {opacity:0, x:-48, y:0},
+        {opacity:1, x:0, y:0, duration:.85, ease:'power3.out',
+         scrollTrigger:{trigger:el, start:'top 88%', toggleActions:'play reverse play reverse'}});
+    });
+    gsap.utils.toArray('.tquote').forEach(function(el){
+      gsap.fromTo(el, {opacity:0, x:48, y:0},
+        {opacity:1, x:0, y:0, duration:.85, ease:'power3.out',
+         scrollTrigger:{trigger:el, start:'top 88%', toggleActions:'play reverse play reverse'}});
+    });
+
+    /* Hero parallax drift (scrub) */
+    gsap.to('[data-hero-dash]', {yPercent:-9, ease:'none',
+      scrollTrigger:{trigger:'.hero', start:'top top', end:'bottom top', scrub:.6}});
+    gsap.to('.hero-chart-bg', {yPercent:18, ease:'none',
+      scrollTrigger:{trigger:'.hero', start:'top top', end:'bottom top', scrub:.6}});
+
+    /* Showcase dashboard drift (scrub) */
+    var scDash = document.querySelector('.showcase .dash');
+    if (scDash) gsap.fromTo(scDash, {y:56}, {y:-56, ease:'none',
+      scrollTrigger:{trigger:'.showcase', start:'top bottom', end:'bottom top', scrub:.8}});
+
+    /* Key Tools: scroll-driven tab swap with pinned right panel */
+    ScrollTrigger.create({
+      trigger:'#keytools', start:'top 15%', end:'+=1400', pin:'#ktPin', scrub:true, refreshPriority:1,
+      onUpdate:function(self){
+        var i = Math.min(2, Math.floor(self.progress * 3));
+        ktSet(i);
+      }
+    });
+
+    /* Dark panel entrance */
+    gsap.from('.dark', {
+      yPercent:6, borderRadius:'56px', ease:'none',
+      scrollTrigger:{trigger:'.dark', start:'top 95%', end:'top 45%', scrub:true}
+    });
+    } catch (err) {
+      showStatic();
+    }
+  } else {
+    showStatic();
+  }
+})();
+</script>
+<script src="gate.js?v=1"></script>
+<script src="auth.js?v=14"></script>
+<script src="tracker.js?v=3"></script>
+</body>
+</html>

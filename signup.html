@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open account — Zemp & Partner</title>
+<meta name="description" content="Create your Zemp & Partner client account.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="auth.css?v=2">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="lgm" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4f6bf5"/><stop offset="1" stop-color="#22b8d4"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<nav class="nav" aria-label="Main navigation">
+  <a class="nav-logo" href="index.html" aria-label="Zemp & Partner home">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="12" height="12" rx="4" fill="url(#lgm)"/><rect x="10" y="10" width="12" height="12" rx="4" fill="url(#lgm)" opacity=".55"/></svg>
+    Zemp & Partner
+  </a>
+  <div class="nav-links">
+    <a href="index.html#why">Services</a>
+    <a href="index.html#keytools">Advice</a>
+  </div>
+  <a class="nav-login" href="login.html" data-auth="login">Log in</a>
+  <a class="nav-login" href="app.html" data-auth="account" hidden>Account</a>
+  <a class="nav-cta" href="signup.html" data-auth="signup">Open account</a>
+  <button class="nav-cta" type="button" data-auth="logout" hidden>Log out</button>
+</nav>
+
+<main class="auth">
+  <div class="auth-card">
+    <span class="badge"><span class="dot"></span>Client account</span>
+    <h1>Open account</h1>
+    <p class="lead">One account. Then the marketplace: overnight cash, term deposits and ETF portfolios at partner banks.</p>
+    <form data-auth-form="signup" novalidate>
+      <p class="auth-error" data-auth-error hidden></p>
+      <div class="field">
+        <label for="name">Full name</label>
+        <input id="name" name="name" type="text" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required>
+      </div>
+      <div class="field">
+        <label for="phone">Phone <span style="color:var(--mut);font-weight:500">(optional)</span></label>
+        <input id="phone" name="phone" type="tel" autocomplete="tel">
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <div class="pw-wrap">
+          <input id="password" name="password" type="password" autocomplete="new-password" minlength="8" required>
+          <button type="button" class="pw-toggle" aria-label="Show password" aria-pressed="false">
+            <svg class="pw-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+            <svg class="pw-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18"/><path d="M10.7 10.7A3 3 0 0 0 13.3 13.3"/><path d="M9.9 5.1A11 11 0 0 1 12 5c6.4 0 10 7 10 7a18.5 18.5 0 0 1-2.2 3.2"/><path d="M6.1 6.1C3.8 7.9 2 12 2 12s3.6 7 10 7a10.8 10.8 0 0 0 4.4-.9"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="field">
+        <label for="confirm">Confirm password</label>
+        <div class="pw-wrap">
+          <input id="confirm" name="confirm" type="password" autocomplete="new-password" minlength="8" required>
+          <button type="button" class="pw-toggle" aria-label="Show password" aria-pressed="false">
+            <svg class="pw-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+            <svg class="pw-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18"/><path d="M10.7 10.7A3 3 0 0 0 13.3 13.3"/><path d="M9.9 5.1A11 11 0 0 1 12 5c6.4 0 10 7 10 7a18.5 18.5 0 0 1-2.2 3.2"/><path d="M6.1 6.1C3.8 7.9 2 12 2 12s3.6 7 10 7a10.8 10.8 0 0 0 4.4-.9"/></svg>
+          </button>
+        </div>
+      </div>
+      <button class="auth-submit" type="submit">Create account</button>
+    </form>
+    <p class="auth-switch">Already have an account? <a href="login.html">Log in</a></p>
+  </div>
+</main>
+<script src="gate.js?v=1"></script>
+<script src="auth.js?v=14"></script>
+<script src="tracker.js?v=3"></script>
+</body>
+</html>
