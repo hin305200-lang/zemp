@@ -1,6 +1,6 @@
 # Zemp & Partner
 
-Local demo site for **Zemp & Partner Asset Advisory AG** (Baar, Zug): public pages in English and a client marketplace after login.
+Local demo site for **Zemp & Partner Asset Advisory AG** (Canton of Zug): public pages in English and a client marketplace after login.
 
 This is a prototype. Products, partner banks, and Open-Banking links are simulated. Do not treat it as a live brokerage or production system.
 

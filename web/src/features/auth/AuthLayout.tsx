@@ -39,6 +39,7 @@ export function AuthLayout({ children }: { children: ReactNode }) {
   return (
     <div className="auth-shell">
       <nav className="nav" aria-label="Main navigation">
+        <div className="nav-inner">
         <Link className="nav-logo" to="/" aria-label="Zemp & Partner home">
           <Logo size={22} />
           Zemp & Partner
@@ -78,6 +79,7 @@ export function AuthLayout({ children }: { children: ReactNode }) {
         >
           <span />
         </button>
+        </div>
       </nav>
       <div className={open ? "nav-drawer open" : "nav-drawer"} id={drawerId}>
         <button className="nav-drawer-dim" type="button" aria-label="Close menu" onClick={() => setOpen(false)} />

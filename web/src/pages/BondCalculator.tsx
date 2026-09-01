@@ -58,6 +58,8 @@ export function BondCalculator() {
   const profit = useMemo(() => amount * (rate / 100) * years, [amount, rate, years]);
   const end = amount + profit;
   const pct = amount ? (profit / amount) * 100 : 0;
+  const monthly = months ? profit / months : 0;
+  const gainShare = end > 0 ? (profit / end) * 100 : 0;
 
   return (
     <div className="bc-shell">
@@ -119,29 +121,49 @@ export function BondCalculator() {
         </div>
 
         <div className="bc-results">
-          <div>
-            <h3>Estimated Returns</h3>
-            <div className="bc-row">
-              <span>Initial Investment</span>
+          <p className="bc-results-kicker">Estimated returns</p>
+          <div className="bc-end">
+            <span>End value</span>
+            <strong>{moneyDec.format(end)}</strong>
+          </div>
+          <div className="bc-gainline">
+            <b className="bc-pos">+{moneyDec.format(profit)}</b>
+            <span>{pct.toFixed(2)}% total return</span>
+          </div>
+          <div className="bc-composition">
+            <div className="bc-stack" aria-hidden="true">
+              <i className="bc-stack-prin" style={{ width: `${Math.max(100 - gainShare, 8)}%` }} />
+              <i className="bc-stack-gain" style={{ width: `${Math.min(Math.max(gainShare, 4), 92)}%` }} />
+            </div>
+            <div className="bc-legend">
+              <span>
+                <i className="bc-dot prin" /> Principal
+              </span>
+              <span>
+                <i className="bc-dot gain" /> Return
+              </span>
+            </div>
+          </div>
+          <div className="bc-chips">
+            <div>
+              <span>Principal</span>
               <b>{money.format(amount)}</b>
             </div>
-            <div className="bc-row">
-              <span>Contract Term</span>
-              <b>{months} months</b>
+            <div>
+              <span>Term</span>
+              <b>{months} mo</b>
             </div>
-            <div className="bc-row bc-row-end">
-              <span>Estimated End Value</span>
-              <b className="bc-hi">{moneyDec.format(end)}</b>
+            <div>
+              <span>Annual rate</span>
+              <b>{rate.toFixed(1)}%</b>
             </div>
-            <div className="bc-row bc-row-gain">
-              <span>Total Return</span>
-              <b className="bc-pos">
-                +{moneyDec.format(profit)} ({pct.toFixed(2)}%)
-              </b>
+            <div>
+              <span>Monthly income</span>
+              <b>{moneyDec.format(monthly)}</b>
             </div>
           </div>
           <Link className="bc-cta" to="/signup">
-            Get started with this contract →
+            Start this contract
           </Link>
         </div>
       </div>

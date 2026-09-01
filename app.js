@@ -306,7 +306,7 @@
     openModal(
       "<h3>" + title + "</h3>" +
       "<p>" + body + "</p>" +
-      "<p>Zemp & Partner Asset Advisory AG<br>Lindenstrasse 10, 6340 Baar</p>" +
+      "<p>Zemp & Partner Asset Advisory AG<br>Lindenstrasse 10, Canton of Zug</p>" +
       '<div class="actions"><button class="btn btn-dark" id="advOk">Close</button></div>',
       function (modal) {
         modal.querySelector("#advOk").onclick = closeModal;

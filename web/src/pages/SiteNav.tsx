@@ -42,6 +42,7 @@ export function SiteNav() {
   return (
     <>
       <nav className="nav" aria-label="Main">
+        <div className="nav-inner">
         <a className="nav-logo" href="#top" aria-label="Zemp & Partner home">
           <Logo size={22} />
           Zemp & Partner
@@ -75,6 +76,7 @@ export function SiteNav() {
           >
             <span />
           </button>
+        </div>
         </div>
       </nav>
       <div className={open ? "nav-drawer open" : "nav-drawer"} id={drawerId}>

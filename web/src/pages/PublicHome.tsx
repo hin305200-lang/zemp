@@ -333,7 +333,7 @@ export function PublicHome() {
             <dt>Legal form</dt>
             <dd>Company limited by shares (AG)</dd>
             <dt>Registered office</dt>
-            <dd>Lindenstrasse 10, 6340 Baar, Canton of Zug</dd>
+            <dd>Lindenstrasse 10, Canton of Zug</dd>
             <dt>UID</dt>
             <dd>CHE-113.281.174</dd>
             <dt>Licence</dt>
@@ -348,7 +348,7 @@ export function PublicHome() {
         <div className="wrap">
           <p className="kicker">Privacy</p>
           <h2>Privacy policy</h2>
-          <p>The controller is Zemp & Partner Asset Advisory AG, Lindenstrasse 10, 6340 Baar.</p>
+          <p>The controller is Zemp & Partner Asset Advisory AG, Lindenstrasse 10, Canton of Zug.</p>
           <p>
             This page is a company presentation. We do not use advertising analytics. Technical server logs (IP, time, requested file) are used for operation and security.
           </p>
@@ -365,7 +365,7 @@ export function PublicHome() {
               </svg>
               Zemp & Partner
             </a>
-            <p>FINIG-licensed asset manager. Lindenstrasse 10, 6340 Baar.</p>
+            <p>FINIG-licensed asset manager. Lindenstrasse 10, Canton of Zug.</p>
           </div>
           <div className="foot-col">
             <h5>Site</h5>
@@ -382,7 +382,7 @@ export function PublicHome() {
             <a href={publicPath("app.html")}>Marketplace login</a>
           </div>
         </div>
-        <div className="foot-bar">© 2026 Zemp & Partner Asset Advisory AG · CHE-113.281.174 · Baar</div>
+        <div className="foot-bar">© 2026 Zemp & Partner Asset Advisory AG · CHE-113.281.174 · Canton of Zug</div>
       </footer>
     </>
   );
