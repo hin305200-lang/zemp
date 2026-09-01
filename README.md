@@ -34,9 +34,7 @@ SQLite is created at `data/nnfin.db` on first run. That file is gitignored.
 
 | Path | Role |
 | --- | --- |
-| `web/` | React + Vite app (home, login, signup) |
-| `index.html` | Public site (legacy HTML locally; React build on GitHub Pages) |
-| `login.html` / `signup.html` | Auth (legacy HTML locally; SPA on Pages) |
+| `web/` | React app (home, login, signup) |
 | `app.html` | Logged-in marketplace (not yet migrated) |
 | `server.py` | HTTP + SQLite API |
 | `assets/` | Avatars and animation libraries |

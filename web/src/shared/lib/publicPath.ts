@@ -1,5 +1,5 @@
-/** GitHub Pages serves this app under /fin/nnfin/; nnfinanz.com serves the same files at /. */
-const GITHUB_PAGES_PREFIX = "/fin/nnfin";
+/** GitHub Pages serves this app under /zemp/; a custom domain uses `/`. */
+const GITHUB_PAGES_PREFIX = "/zemp";
 
 /**
  * Absolute path to the SPA root. Vite `base: "./"` keeps asset URLs relative in

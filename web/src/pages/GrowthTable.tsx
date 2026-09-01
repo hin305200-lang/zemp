@@ -304,7 +304,8 @@ export function GrowthTable() {
     const pool = BONDS.filter((bond) => IG.has(bond.rating));
     const rungs = [2, 3, 5]
       .map((target) => nearestByYears(pool, target))
-      .filter((bond, index, list): bond is Bond => Boolean(bond) && list.findIndex((item) => item?.id === bond.id) === index);
+      .filter((bond): bond is Bond => bond != null)
+      .filter((bond, index, list) => list.findIndex((item) => item.id === bond.id) === index);
     if (rungs.length < 2) return null;
     const slice = amount / rungs.length;
     const earn = rungs.reduce((sum, bond) => sum + yieldIncome(slice, bond.ytm, bond.years), 0);

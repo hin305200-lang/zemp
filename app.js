@@ -3,7 +3,7 @@
 
   var session = window.NNAuth && window.NNAuth.getSession();
   if (!session) {
-    window.location.replace("login.html");
+    window.location.replace(new URL("login", window.location.href).href);
     return;
   }
 

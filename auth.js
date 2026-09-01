@@ -333,7 +333,7 @@
     var accountRoot = document.querySelector("[data-auth-account]");
     if (accountRoot) {
       if (getSession()) window.location.replace("app.html");
-      else window.location.replace("login.html");
+      else window.location.replace(new URL("login", window.location.href).href);
       return;
     }
   }

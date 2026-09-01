@@ -36,10 +36,6 @@ const STATIC_FILES = new Set([
   "/crm.js",
   "/crm.css",
   "/crm.html",
-  "/styles.css",
-  "/login.html",
-  "/signup.html",
-  "/account.html",
 ]);
 
 function safeRepoFile(urlPath: string): string | null {
