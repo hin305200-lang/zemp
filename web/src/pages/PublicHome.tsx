@@ -9,7 +9,7 @@ import { SiteNav } from "./SiteNav";
 const FAQS = [
   {
     q: "What is Zemp & Partner?",
-    a: "Zemp & Partner Asset Advisory AG is a FINIG-licensed asset manager in Baar. The platform is a bond marketplace: senior notes, covered bonds and selected subordinated issues from partner issuers — one login, with the firm as your adviser.",
+    a: "Zemp & Partner Asset Advisory AG is a FINIG-licensed asset manager. The platform is a bond marketplace: senior notes, covered bonds and selected subordinated issues from partner issuers — one login, with the firm as your adviser.",
   },
   {
     q: "Are bonds deposits?",
@@ -17,7 +17,7 @@ const FAQS = [
   },
   {
     q: "How do I get started?",
-    a: "Open an account, sign in, and compare bonds by yield, coupon, rating and maturity. Zemp & Partner Asset Advisory AG in Baar remains the operator — imprint and commercial register are below.",
+    a: "Open an account, sign in, and compare bonds by yield, coupon, rating and maturity. Zemp & Partner Asset Advisory AG remains the operator — imprint and commercial register are below.",
   },
 ];
 
@@ -38,7 +38,7 @@ export function PublicHome() {
         <div className="wrap hero-grid">
           <div>
             <p className="kicker">Zemp & Partner Asset Advisory AG · Baar, Zug</p>
-            <h1>Bond investments, from one adviser in Baar.</h1>
+            <h1>Bond investments, from one adviser.</h1>
             <p className="hero-sub">
               Zemp &amp; Partner is a FINIG-licensed asset manager. We help you lend to governments and corporations through bonds — IOUs that pay interest and repay principal at maturity.
             </p>
@@ -53,7 +53,7 @@ export function PublicHome() {
             <ul className="trust">
               <li>FINIG-licensed</li>
               <li>Founded 2006</li>
-              <li>Office in Baar</li>
+              <li>Canton of Zug</li>
             </ul>
           </div>
           <aside className="hero-rates" aria-label="Current indicative yields">
@@ -144,7 +144,7 @@ export function PublicHome() {
         <div className="wrap firm-grid">
           <div>
             <p className="kicker">The firm</p>
-            <h2>An office in Baar, Canton of Zug</h2>
+            <h2>An office in Canton of Zug</h2>
             <p>
               Zemp & Partner Asset Advisory AG has been licensed as an asset manager under FINIG since the firm was founded in 2006. Board: Raimund Zemp (Chairman) and Michael Zemp.
             </p>
@@ -179,7 +179,7 @@ export function PublicHome() {
               <span>1</span>
               <div>
                 <h3>Open an account</h3>
-                <p>Register with your name, email and a password. No obligation intro meeting in Baar if you prefer to talk first.</p>
+                <p>Register with your name, email and a password. No obligation intro meeting if you prefer to talk first.</p>
               </div>
             </li>
             <li>
