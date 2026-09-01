@@ -322,21 +322,6 @@ export function PublicHome() {
         </div>
       </section>
 
-      <section className="cn-band cn-foot-calc">
-        <div className="wrap cn-foot-lead">
-          <h2>Invest smarter. Earn steadier. Plan confidently.</h2>
-          <p>
-            Tailored, income-focused bond solutions. From the calculator to the live book after login, licensed advice with clear terms.
-          </p>
-          <Link className="btn btn-dark" to="/signup">
-            Get in touch
-          </Link>
-        </div>
-        <div className="wrap">
-          <BondCalculator />
-        </div>
-      </section>
-
       <section className="legal" id="imprint">
         <div className="wrap">
           <p className="kicker">Information pursuant to Art. 3(1)(s) UWG</p>
